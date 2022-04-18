@@ -7,6 +7,7 @@ import register from '../views/register.vue'
 import dashboard from '../views/Dashboard.vue'
 import homiylar from '../views/Homiylar.vue'
 import talabalar from '../views/Talabalar.vue'
+import AddStudent from '../views/add-student.vue'
 
 const routes = [
   {
@@ -46,6 +47,11 @@ const routes = [
     path: '/Talabalar',
     name: 'Talabalar',
     component: talabalar
+  },
+  {
+    path: '/Add-student',
+    name: 'Add-student',
+    component: AddStudent
   },
   {
     path: '/:catchAll(.*)',

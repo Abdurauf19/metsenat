@@ -9,7 +9,7 @@
           :class="{homeactive:btnIndex === index}"
           @click="btnIndex = index"
           class="text-[12px] text-[#3366FF99] border-[2px] border-[#E0E7FF] rounded-[6px] uppercase py-[14px] px-[60px]"
-          to="/Homiylar"
+          to="/Talabalar"
           >{{ item.link }}</router-link
         >
       </div>
