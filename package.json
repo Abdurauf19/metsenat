@@ -1,0 +1,29 @@
+{
+  "name": "metsenat",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "sass": "^1.50.0",
+    "sass-loader": "^12.6.0",
+    "vue": "^3.2.25",
+    "vue-i18n": "8",
+    "vue-recaptcha": "^2.0.1",
+    "vue-router": "^4.0.14",
+    "vue-toastification": "^2.0.0-rc.5",
+    
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.0",
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24",
+    "vite": "^2.9.0"
+  }
+}

@@ -1,0 +1,130 @@
+@import '_font.scss';
+@import '_media.scss';
+@import '_mixins.scss';
+@import '_tailwind.scss';
+@import 'variables.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+a{text-decoration: none;}
+ul{list-style: none;}
+
+body {font-family: 'Rubik';}
+
+// Header nav 
+
+.header-nav {
+  background: #FFFFFF;
+  box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.03);
+  
+  &__btn {
+    @include transition-ease
+  }
+  &__btn:hover{
+    background-color: #3366FF;
+    color: #FFFFFF;
+  }
+}
+.click {
+  border-color: #2E5BFF;
+  position: relative;
+  
+}
+.galochka ,.modalactive {
+  border-color: #2E5BFF;
+}
+.modalactive::before {
+  content: url(../photos/Checked.png );
+  position: absolute;
+  margin: -9px 0 0 110px;
+
+}
+
+.galochka::before{
+ content: url(../photos/Checked.png );
+ position: absolute;
+ margin: -8px 0 0px 165px;
+}
+
+.activee {
+  background-color: #3366FF;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease-in;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.svg-vv  {
+  display: none;
+}
+
+// Sign in Form
+.Login-container  {
+
+  .login-form {
+    background: #FFFFFF;
+    border: 1px solid #EBEEFC;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    padding: 32px;
+
+    .Login-form__input, .Login-forminput {
+      background: rgba(224, 231, 255, 0.2);
+      border: 1px solid #E0E7FF;
+      box-sizing: border-box;
+      border-radius: 6px;
+      margin-bottom: 22px;
+      outline: none;
+    }
+  }
+}
+
+.dashboard {
+  .homiylar-content__text {
+    position: relative;
+  }
+  .homiylar-content__text::before ,.homiylar-content__text2::before  {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background-color: #4C6FFF;
+    margin: 2px 0 0px -11px;
+  }
+  .homiylar-content__text2::before {
+    background-color: #FF92AE ;
+  }
+}
+
+
+
+// Modal 
+
+.modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16);
+border-radius: 5px
+}
+
+.homeactive {
+  background-color: #3366FF;
+  color: #FFFFFF;
+}
+
+
+

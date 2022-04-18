@@ -1,0 +1,26 @@
+@media only screen and (max-width:1200px) {
+  .svg-vv  {
+    transform: translateY(400px);
+  }
+  .user {
+    .user-Form {
+      padding-right: 50px ;
+    }
+   
+  }
+}
+
+@media only screen and (max-width:1116px)  {
+  .sh-text {
+    line-height: 20px;
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width:992px) {
+  .container-user {
+    flex-direction: column;
+    gap: 100px;
+
+  }
+}
