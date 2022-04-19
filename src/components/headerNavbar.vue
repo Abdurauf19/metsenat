@@ -9,7 +9,7 @@
           :class="{homeactive:btnIndex === index}"
           @click="btnIndex = index"
           class="text-[12px] text-[#3366FF99] border-[2px] border-[#E0E7FF] rounded-[6px] uppercase py-[14px] px-[60px]"
-          to="/Dashboard"
+          :to="item.path"
           >{{ item.link }}</router-link
         >
       </div>
@@ -270,15 +270,15 @@ export default {
       links: [
         {
           link: "Dashboard",
-          id: "/Dashboard",
+          path: "/Dashboard",
         },
         {
           link: "Homiylar",
-          id: "/Homiylar",
+          path: "/Homiylar",
         },
         {
           link: "Talabalar",
-          id: "/Talabalar",
+          path: "/Talabalar",
         },
       ],
       summs: [
