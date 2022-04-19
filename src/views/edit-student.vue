@@ -235,10 +235,10 @@
             <p
               class="uppercase text-[12px] leading-[14px] text-[#B5B5C3] pb-[12px]"
             >
-              telefon raqam
+              Homiylik summasi
             </p>
             <h3 class="text-[16px] text-[#212121] leading-[14px]">
-              +998 99 973-72-60
+             30 000 000 UZS
             </h3>
           </span>
         </div>
@@ -271,8 +271,8 @@ export default {
       ],
       btnIndexx: 0,
       // Form
-      UserName: "",
-      UserNumber: "",
+      UserName: "Ishmuhammedov Aziz Ishqobilovich",
+      UserNumber: "+998 99 973-72-60",
       UserSelect: "0",
       UserSum: "0",
       UserPay: "0",
