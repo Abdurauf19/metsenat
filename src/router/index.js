@@ -8,6 +8,8 @@ import dashboard from '../views/Dashboard.vue'
 import homiylar from '../views/Homiylar.vue'
 import talabalar from '../views/Talabalar.vue'
 import AddStudent from '../views/add-student.vue'
+import EditStudent from '../views/edit-student.vue'
+import aboutStudent from '../views/about-student.vue'
 
 const routes = [
   {
@@ -52,6 +54,16 @@ const routes = [
     path: '/Add-student',
     name: 'Add-student',
     component: AddStudent
+  },
+  {
+    path: '/edit-student',
+    name: 'edit-student',
+    component: EditStudent
+  },
+  {
+    path: '/about-student',
+    name: 'about-student',
+    component: aboutStudent
   },
   {
     path: '/:catchAll(.*)',

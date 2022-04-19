@@ -68,7 +68,7 @@
           <td class="text-[14px] text-[#1D1D1F]">
             {{ item.allsums }}<span class="text-[#B1B1B8]">UZS</span>
           </td>
-          <td>
+        <router-link to="/about-student"><td>
             <svg
               width="24"
               height="24"
@@ -86,7 +86,7 @@
                 fill="#3366FF"
               />
             </svg>
-          </td>
+          </td></router-link> 
         </tr>
       </table>
     </div>
