@@ -132,6 +132,10 @@ export default {
       ]
     }
   },
+
+  methods: {
+    
+  }
 };
 
 
