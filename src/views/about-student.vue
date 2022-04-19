@@ -39,7 +39,7 @@
     </div>
 
     <!-- About student -->
-    <div class="flex items-center justify-center mt-[40px]">
+    <div class="flex flex-col items-center justify-center gap-[40px] mt-[40px]">
       <div class="about-student">
         <!-- 1 -->
         <div class="flex items-center justify-between ">
@@ -105,15 +105,82 @@
       </div>
       <!-- sponsor student -->
       <div class="sponsor-add">
-        
+        <!-- title -->
+          <div class="flex justify-between items-center">
+            <h3 class="">Talabaga homiylar</h3>
+              <button class=" flex items-center justify-center gap-[14px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.9999 11.9999H4.00007" stroke="#3365FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 4V19.9999" stroke="#3365FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+                Homiy qo‘shish
+        </button>
+          </div>
+          <!-- table -->
+          <table class="tables">
+      <tr class="mb-[12px]">
+          <th class="text-[12px]  text-[#B1B1B8] uppercase font-medium">#</th>
+          <th class="text-[12px]  text-[#B1B1B8] uppercase font-medium">f.i.sh.</th>
+          <th class="text-[12px]  text-[#B1B1B8] uppercase font-medium">Ajratilingan summa</th>
+          <th class="text-[12px]  text-[#B1B1B8] uppercase font-medium">Amallar</th>
+      </tr>
+      <tr v-for="(item, i) in data" :key="i"  class="border-[1px]  border-[#FBFBFC] rounded-[8px] cursor-pointer">
+        <td class="text-[15px]  text-[#1D1D1F]">{{item.num}}</td>
+          <td class="text-[15px]  text-[#1D1D1F]">{{item.name}}</td>
+          <td class="text-[15px] text-[#1D1D1F]">{{item.sum}} <span>UZS</span></td>
+          <td><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 7H6C5.46957 7 4.96086 7.21071 4.58579 7.58579C4.21071 7.96086 4 8.46957 4 9V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20H15C15.5304 20 16.0391 19.7893 16.4142 19.4142C16.7893 19.0391 17 18.5304 17 18V15" stroke="#3467FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 15H12L20.5 6.49998C20.8978 6.10216 21.1213 5.56259 21.1213 4.99998C21.1213 4.43737 20.8978 3.89781 20.5 3.49998C20.1022 3.10216 19.5626 2.87866 19 2.87866C18.4374 2.87866 17.8978 3.10216 17.5 3.49998L9 12V15Z" stroke="#3467FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 5L19 8" stroke="#3467FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          </td>
+      </tr>
+          </table>
+
+          
       </div>
       </div>
+      <!-- Img -->
+      <div class="flex items-center justify-center mt-[44px]">
+              <img src="../assets/photos/edit-page-banner.png" alt="banner">
+          </div>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      data: [
+        {
+          num: '1',
+          name: 'Saimov Rustam Saimjonovich',
+          sum: '1 000 000',
+        },
+        {
+          num: '2',
+          name: 'Sanginov Otabek Muratovich',
+          sum: '7 000 000 ',
+        },
+          {
+            num: '3',
+            name: 'Nazarov Sanjar Olimovich',
+            sum: '10 000 000 ',
+          },
+          {
+            num: '4',
+            name: 'Ishmuhammedov Aziz Ishqobilovich',
+            sum: '12 000 000 ',
+          },
+      ]
+    }
+  }
+}
+</script>
 
-<style lang="scss">
-  .about-student {
+
+<style lang="scss" scoped>
+  .about-student, .sponsor-add {
     width: 790px;
     padding: 32px;
     background: #FFFFFF;
@@ -121,4 +188,10 @@
     box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.03);
     border-radius: 12px;
   }
+
+  td, th {
+  text-align: left;
+  padding: 25px 33px;
+
+}
 </style>
