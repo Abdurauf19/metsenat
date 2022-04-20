@@ -48,7 +48,7 @@
         <!-- Filter -->
         <Transition name="fade" appear>
           <span
-            @click="showModal = true"
+            @click="on"
             class="flex items-center justify-center rounded-[5px] bg-[#EDF1FD] ml-[20px] w-[123px] cursor-pointer"
             ><svg
               width="14"
@@ -75,8 +75,8 @@
     </div>
   </div>
   <div
-    class="modal-overlay top-0 bottom-0 right-0 left-0 bg-[#00000080] flex items-center justify-center absolute"
-    v-if="showModal "
+    class="modal-overlay bg-[#00000080]   items-center justify-center"
+    
   >
    <Transition>
     <div class="w-[586px] py-[28px] px-[28px] bg-[#FFF] rounded-[12px]">
@@ -87,7 +87,7 @@
           Filter
         </h3>
         <svg
-         @click="showModal = false"
+         @click="off"
           class="cursor-pointer"
           width="28"
           height="28"
@@ -138,7 +138,7 @@
           class="text-[12px] text-[#1D1D1F] font-medium leading-[14px] pt-[28px] pb-[16px] uppercase"
           >Homiylik summasi</label
         >
-        <div class="flex flex-wrap gap-[16px] pt-[12px]">
+        <div class="grid grid-cols-4 gap-[16px] pt-[12px]">
           <label
             v-for="(item, index) in summs"
             :key="index"
@@ -264,7 +264,6 @@ export default {
         navModal,
       },
       ShowNavBar: '',
-      showModal: false,
       currentSum: "",
       btnIndex: 0,
       links: [
@@ -314,7 +313,26 @@ export default {
   },
 
   methods: {
-   
+   on() {
+  document.querySelector(".modal-overlay").style.display = "flex";
+},
+ off() {
+  document.querySelector(".modal-overlay").style.display = "none";
+}
   },
 };
 </script>
+
+<style lang="scss">
+  
+  .modal-overlay {
+     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+   
+  }
+</style>
