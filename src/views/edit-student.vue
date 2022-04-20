@@ -1,14 +1,13 @@
 <template>
    <!-- Modal -->
     <div 
-      v-if="changeModal"
-      class="flex items-center justify-center bg-[#00000080] top-0 bottom-0 right-0 left-0  h-[200vh]"
+      class="modal-edit  items-center justify-center bg-[#00000080] "
     >
       <div class="edit-modal">
         <div class="flex items-center justify-between mb-[28px]">
           <h2 class="text-[24px] text-[#28293D] leading-[28px]">Tahrirlash</h2>
           <svg
-            @click="changeModal = false"
+           @click="ModalOff"
             class="cursor-pointer"
             width="28"
             height="28"
@@ -150,7 +149,7 @@
         <div class="flex items-center justify-between">
           <h3 class="text-[24px] text-[#28293D] font-medium">Homiy haqida</h3>
           <span
-            @click="changeModal = true"
+            @click="ModalOn"
             class="flex items-center justify-center w-[166px] rounded-[6px] bg-[#EDF1FD] gap-[17px] cursor-pointer"
           >
             <svg
@@ -245,8 +244,6 @@
       </div>
     </div>
 
-   
-
     <!-- IMG -->
     <div class="flex justify-center">
       <img src="../assets/photos/edit-page-banner.png" alt="Banner" />
@@ -259,7 +256,7 @@ export default {
   data() {
     return {
       // Modal
-      changeModal: false,
+      
       // btn index
       btns: [
         {
@@ -279,6 +276,15 @@ export default {
       Usergroup: "",
     };
   },
+
+  methods: {
+    ModalOn() {
+      document.querySelector(".modal-edit").style.display = "flex";
+    },
+    ModalOff() {
+      document.querySelector(".modal-edit").style.display = "none";
+    },
+  }
 };
 </script>
 
@@ -294,7 +300,6 @@ export default {
 }
 
 .edit-modal {
-  position: absolute;
   padding: 28px;
   background-color: #ffffff;
   border-radius: 12px;
@@ -325,5 +330,15 @@ export default {
   border-radius: 5px;
   padding: 9px 0;
   width: 150px;
+}
+
+.modal-edit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
 }
 </style>

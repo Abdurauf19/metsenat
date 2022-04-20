@@ -66,7 +66,7 @@
         <!-- 1 -->
         <div class="flex items-center justify-between">
           <h2 class="text-[24px] text-[#28293D] font-medium">Talaba haqida</h2>
-          <button
+          <button @click="EditOn"
             class="flex gap-[15px] py-[13px] w-[166px] bg-[#EDF1FD] rounded-[5px] items-center justify-center"
           >
             <svg
@@ -272,6 +272,102 @@
       <img src="../assets/photos/edit-page-banner.png" alt="banner" />
     </div>
   </div>
+  <!-- edit student -->
+    <div class="edit-student flex items-center justify-center bg-[#00000080]">
+      <div class="px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
+      <!-- Modal header -->
+        <div class="modal-header flex items-center justify-between mb-[28px]">
+          <h3 class="text-[24px] text-[#28293D] font-medium">Tahrirlash</h3>
+          <svg
+            @click="EditOff"
+            class="cursor-pointer"
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 7L7 21"
+              stroke="#B2B7C1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M7 7L21 21"
+              stroke="#B2B7C1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <!-- Modal from or body -->
+        <div class="mb-[28px]">
+            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
+            <input v-model="UserName" class="outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" required>
+          </div>
+          <!-- UserNumber -->
+          <div class="mb-[28px]">
+           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
+            <input v-model="UserNumber" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
+          </div>
+          <!-- UserSelect -->
+          <div class="mb-[28px]">
+           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">OTM</label>
+            <select  v-model="UserSelect" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
+              <option value="0">O’zbekiston Davlat Jahon Tillari Universiteti</option>
+              <option value="1">O’zbekiston Davlat Jahon Tillari Universiteti</option>
+              <option value="2">O’zbekiston Davlat Jahon Tillari Universiteti</option>
+              <option value="3">O’zbekiston Davlat Jahon Tillari Universiteti</option>
+            </select>
+          </div>
+          <!-- User Sum -->
+           <div class="mb-[28px]">
+           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSums">Kontrakt miqdori</label>
+            <input v-model="UserSums" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserSums" placeholder="30 000 000 UZS" required>
+          </div>
+          <!-- User btn -->
+          <div class="flex justify-end items-center">
+          <button 
+            class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15 19V11H5V19"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5 1V6H13"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            Saqlash
+          </button>
+          </div>
+      </div>
+    </div>
 
   <!-- Add sponsor modal -->
   <div id="overlay" class="flex justify-center items-center bg-[#00000080]">
@@ -527,10 +623,8 @@ export default {
           sum: "12 000 000 ",
         },
       ],
-      //  sponsor
-      UserName: "0",
-      UserSum: "",
-      options: [
+      //  sponsor add
+       options: [
         {
           value: "0",
           text: "Homiyni tanlang",
@@ -552,6 +646,14 @@ export default {
           text: "Nazarov Sanjar Olimovich",
         },
       ],
+      UserName: "0",
+      UserSum: "",
+      // Edit student
+      UserSelect: '0',
+      UserNumber: '',
+      UserName: '',
+      UserSums: 'UZS',
+     
     };
   },
 
@@ -567,12 +669,21 @@ export default {
       this.UserName = 0;
       this.UserSum = "";
     },
+    // ADD sponsor
     on() {
       document.getElementById("overlay").style.display = "flex";
     },
     off() {
       document.getElementById("overlay").style.display = "none";
     },
+    // Edit student
+    EditOn() {
+      document.querySelector(".edit-student").style.display = "flex";
+    },
+    EditOff() {
+      document.querySelector(".edit-student").style.display = "none";
+    },
+    // edit sponsor
     btnOff() {
       document.querySelector(".edit-sponsor ").style.display = "none";
     },
@@ -601,7 +712,8 @@ th {
 }
 
 #overlay,
-.edit-sponsor {
+.edit-sponsor,
+.edit-student {
   display: none;
   justify-content: center;
   align-content: center;
