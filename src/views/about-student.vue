@@ -2,7 +2,7 @@
   <div class="con bg-[#E5E5E5]">
     <!-- header -->
     <div class="bg-[#FFFFFF] flex items-center justify-between">
-      <span class="py-[30px] flex items-center gap-[16px] pl-[120px]">
+      <span class="py-[30px] flex items-center mmd:pl-[20px] gap-[16px] pl-[120px]">
         <router-link to="/Talabalar">
           <svg
             width="28"
@@ -26,15 +26,15 @@
               stroke-linejoin="round"
             /></svg
         ></router-link>
-        <h2 class="text-[24px] text-[#28293D] font-bold">
+        <h2 class="text-[24px] xxs:text-[12px]  sm:text-[15px] md:text-[18px] text-[#28293D] font-bold">
           Isfandiyorov Iqbol Bobomirzayevich
         </h2>
       </span>
       <button
         @click="on"
-        class="mr-[126px] flex items-center justify-center gap-[14px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]"
+        class="mdd:mr-[40px] md:mr-[30px] xss:mr-[0px] mr-[126px] flex items-center justify-center gap-[14px] smm:text-[12px] smm:w-[137px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]"
       >
-        <svg
+        <svg class="smm:w-[15px] smm:h-[15px]"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -67,7 +67,7 @@
         <div class="flex items-center justify-between">
           <h2 class="text-[24px] text-[#28293D] font-medium">Talaba haqida</h2>
           <button @click="EditOn"
-            class="flex gap-[15px] py-[13px] w-[166px] bg-[#EDF1FD] rounded-[5px] items-center justify-center"
+            class="flex gap-[15px] text-[#3365FC] text-[14px] xxs:w-[130px] xxs:py-[11px]  py-[13px] w-[166px] bg-[#EDF1FD] rounded-[5px] items-center justify-center"
           >
             <svg
               width="24"
@@ -148,7 +148,7 @@
           <hr class="mt-[-13px]" />
         </div>
         <!-- 5 type and OTM -->
-        <div class="flex mt-[26px] gap-[28px]">
+        <div class="flex mt-[26px] smm:flex-col gap-[28px]">
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">OTM</p>
             <p class="text-[#212121] text-[16px] font-medium">
@@ -161,7 +161,7 @@
           </div>
         </div>
         <!-- sum and all sum -->
-        <div class="flex mt-[26px] gap-[224px]">
+        <div class="flex mt-[26px] smm:flex-col smm:gap-[28px] gap-[224px]">
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">
               Ajratilingan summa
@@ -175,7 +175,7 @@
         </div>
       </div>
       <!-- sponsor student -->
-      <div class="sponsor-add">
+      <div v-if="false" class="sponsor-add">
         <!-- title -->
         <div class="flex justify-between items-center">
           <h3 class="">Talabaga homiylar</h3>
@@ -703,6 +703,42 @@ export default {
   border: 1px solid #ebeefc;
   box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.03);
   border-radius: 12px;
+}
+
+@media only screen and (max-width: 830px) {
+  .about-student {
+    width: 690px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .about-student {
+    width: 640px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .about-student {
+    width: 576px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .about-student {
+    width: 532px;
+  }
+}
+@media only screen and (max-width: 532px) {
+  .about-student {
+    width: 475px;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .about-student {
+    width: 420px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .about-student {
+    width: 370px;
+  }
 }
 
 td,
