@@ -25,6 +25,7 @@ module.exports = {
     smm: { 'max' : '576px' },
     xss : { "max" : "532px" },
     xs: { 'max': "475px" },
+    xxs: { 'max': "420px" },
     "2xs": { 'max': "375px" },
   },}
 

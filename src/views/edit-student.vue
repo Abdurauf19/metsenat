@@ -49,17 +49,17 @@
           <!-- Username -->
           <div class="mb-[28px]">
             <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
-            <input v-model="UserName" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" requiredqqq>
+            <input v-model="UserName" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" requiredqqq>
           </div>
           <!-- UserNumber -->
           <div class="mb-[28px]">
            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
-            <input v-model="UserNumber" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
+            <input v-model="UserNumber" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
           </div>
           <!-- UserSelect -->
           <div class="mb-[28px]">
            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">Holati</label>
-            <select  v-model="UserSelect" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
+            <select  v-model="UserSelect" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" id="UserSelect" required>
               <option value="0">Tasdiqlangan</option>
               <option value="1">Yangi</option>
               <option value="2">Moderatsiyada</option>
@@ -69,7 +69,7 @@
           <!-- UserSum -->
           <div class="mb-[28px]">
            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSum">Homiylik summasi</label>
-            <select  v-model="UserSum" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSum" required>
+            <select  v-model="UserSum" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" id="UserSum" required>
               <option value="0">30 000 000 UZS</option>
               <option value="1">20 000 000 UZS</option>
               <option value="2">10 000 000 UZS</option>
@@ -79,7 +79,7 @@
           <!-- UserPay -->
           <div class="mb-[28px]">
            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserPay">To‘lov turi</label>
-            <select  v-model="UserPay" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserPay" required>
+            <select  v-model="UserPay" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" id="UserPay" required>
               <option value="0">Pul o‘tkazmalari</option>
               <option value="1">Naxt</option>
               <option value="2">Viza</option>
@@ -89,7 +89,7 @@
           <Transition>
           <div v-if="btnIndexx === 1" class="mb-[28px]">
             <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="Usergroup">Tashkilot nomi</label>
-            <input v-model="Usergroup" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="Usergroup" placeholder="Orient Group" required>
+            <input v-model="Usergroup" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" type="text" id="Usergroup" placeholder="Orient Group" required>
           </div>
           </Transition>
           <hr>
@@ -108,7 +108,7 @@
     </div>
     <!--  -->
   <div class="conteinerrr bg-[#E5E5E5]">
-    <div class="flex items-center pl-[120px] bg-[#FFFFFF]">
+    <div class="flex items-center xs:pl-[15px] mdd:pl-[30px] pl-[120px] bg-[#FFFFFF]">
       <router-link to="/Homiylar">
         <svg
           width="28"
@@ -132,7 +132,7 @@
             stroke-linejoin="round"
           /></svg
       ></router-link>
-      <h3 class="ml-[21px] py-[26px] text-[24px] text-[#28293D] font-medium">
+      <h3 class="ml-[21px] py-[26px] sm:text-[20px] text-[24px] text-[#28293D] font-medium">
         Ishmuhammedov Aziz Ishqobilovich
       </h3>
       <p
@@ -150,7 +150,7 @@
           <h3 class="text-[24px] text-[#28293D] font-medium">Homiy haqida</h3>
           <span
             @click="ModalOn"
-            class="flex items-center justify-center w-[166px] rounded-[6px] bg-[#EDF1FD] gap-[17px] cursor-pointer"
+            class="flex items-center justify-center sm:w-[135px] w-[166px] rounded-[6px] bg-[#EDF1FD] gap-[17px] cursor-pointer"
           >
             <svg
               width="24"
@@ -215,28 +215,28 @@
                 </clipPath>
               </defs></svg
           ></span>
-          <h3 class="text-[16px] text-[#212121] w-[163px] font-medium">
+          <h3 class="smm:text-[13px] text-[16px] text-[#212121] w-[163px] font-medium">
             Ishmuhammedov Aziz Ishqobilovich
           </h3>
         </div>
-        <div class="pt-[24px] flex gap-[227px]">
+        <div class="pt-[24px] flex xss:gap-[130px] xs:gap-[87px] gap-[227px]">
           <span>
             <p
-              class="uppercase text-[12px] leading-[14px] text-[#B5B5C3] pb-[12px]"
+              class="smm:text-[10px] uppercase text-[12px] leading-[14px] text-[#B5B5C3] pb-[12px]"
             >
               telefon raqam
             </p>
-            <h3 class="text-[16px] text-[#212121] leading-[14px]">
+            <h3 class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]">
               +998 99 973-72-60
             </h3>
           </span>
           <span>
             <p
-              class="uppercase text-[12px] leading-[14px] text-[#B5B5C3] pb-[12px]"
+              class="smm:text-[10px] uppercase text-[12px] leading-[14px] text-[#B5B5C3] pb-[12px]"
             >
               Homiylik summasi
             </p>
-            <h3 class="text-[16px] text-[#212121] leading-[14px]">
+            <h3 class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]">
              30 000 000 UZS
             </h3>
           </span>
@@ -299,11 +299,43 @@ export default {
   margin-top: 40px;
 }
 
+@media only screen and (max-width: 830px) {
+  .homiy-cart {
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .homiy-cart {
+    width: 576px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .homiy-cart {
+    width: 439px;
+  }
+}
+
 .edit-modal {
   padding: 28px;
   background-color: #ffffff;
   border-radius: 12px;
   width: 586px;
+}
+@media only screen and (max-width: 576px) {
+  .edit-modal {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .edit-modal {
+    width: 370px;
+     
+
+     .editbtn {
+       padding: 6px 0;
+     }
+  }
+  
 }
 
 .btnss {
