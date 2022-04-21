@@ -1,26 +1,27 @@
 <template>
-
-  <div class="container-user grid grid-cols-2">
+  <div class="container-user grid grid-cols-2 lg:grid-cols-1">
     <!-- Form -->
     <div class="user z-20">
       <form
         v-if="step === 1"
-        class="user-Form pt-[76px] bg-[#FFF] pr-[100px] pl-[50px] flex flex-col items-center justify-center"
+        class="user-Form pt-[76px] bg-[#FFF] pr-[100px] xl:pr-[50px] pl-[50px] flex flex-col items-center justify-center"
       >
         <h2
-          class=" text-[40px] text-[#1D1D1F] leading-[56px] font-bold pb-[40px]"
+          class="xs:text-[29px] text-[40px] text-[#1D1D1F] leading-[56px] font-bold pb-[40px]"
         >
           Homiy sifatida ariza topshirish
         </h2>
-        <div
-          class="flex"
-        >
-          <div class="flex items-center justify-center border-[#E0E7FF]" v-for="(item, i) in btns" :key="i">
+        <div class="flex">
+          <div
+            class="flex items-center justify-center border-[#E0E7FF]"
+            v-for="(item, i) in btns"
+            :key="i"
+          >
             <a
               href="#"
               :class="{ activee: btnIndex === i }"
               @click="btnIndex = i"
-              class="py-[14px] text-center px-[98px]  font-medium text-[12px] leading-[12px] text-[#3366FF99]"
+              class="xss:py-[11px] xss:text-[11px] xss:px-[58px] py-[14px] text-center px-[98px] font-medium text-[12px] leading-[12px] text-[#3366FF99]"
             >
               {{ item.text }}
             </a>
@@ -30,12 +31,12 @@
         <div>
           <div class="flex flex-col pt-[28px]">
             <label
-              class="text-[14px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
+              class="text-[14px] xss:text-[12px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
               for="name"
               >F.I.Sh. (Familiya Ism Sharifingiz)</label
             >
             <input
-              class="bg-[#E0E7FF33] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
+              class="bg-[#E0E7FF33] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
               type="text"
               id="name"
               placeholder="Abdullayev Abdulla Abdulla o'g'li"
@@ -46,12 +47,12 @@
 
           <div class="flex flex-col pt-[28px]">
             <label
-              class="text-[14px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
+              class="text-[14px] xss:text-[12px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
               for="number"
               >Telefon raqamingiz</label
             >
             <input
-              class="mb-[28px] bg-[#E0E7FF33] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
+              class="mb-[28px] bg-[#E0E7FF33] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
               type="text"
               id="number"
               placeholder="998 00 000-00-00"
@@ -60,21 +61,19 @@
             />
           </div>
 
-          <label class="text-[14px] text-[#1D1D1F] font-medium uppercase"
+          <label class="text-[14px] xss:text-[12px] text-[#1D1D1F] font-medium uppercase"
             >To'lov summasi</label
           >
-          <div class="grid grid-cols-3 gap-[16px] pt-[12px]">
+          <div class="grid grid-cols-3 xll:grid-cols-2 lg:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]">
             <label
               v-for="(item, index) in summs"
               :key="index"
-              class="cursor-pointer radio w-[179px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
+              class="cursor-pointer  radio  xl:w-[150px] w-[179px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
               :class="{ galochka: currentSum === index }"
               @click="currentSum = index"
             >
               <div class="click">
-                <span
-                  class="flex items-center justify-center py-[20px]"
-                >
+                <span class="flex items-center justify-center py-[20px]">
                   <p
                     class="text-[#2E384D] text-[15px] leading-[21px] uppercase"
                   >
@@ -89,7 +88,7 @@
             <Transition>
               <input
                 v-if="currentSum === 5"
-                class="w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
+                class=" xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
                 type="number"
                 placeholder="0"
                 v-model="userSum"
@@ -98,13 +97,13 @@
           </div>
           <div class="mt-[28px] flex flex-col" v-if="btnIndex === 1">
             <label
-              class="text-[14px] text-[#1D1D1F] font-medium uppercase"
+              class=" xss:text-[12px]text-[14px] text-[#1D1D1F] font-medium uppercase"
               for="tashkilot"
               >Tashkilot nomi</label
             >
             <input
               v-model="userCompany"
-              class="w-[594px] mt-[8px] py-[12px] pl-[16px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] rounded-[6px]"
+              class=" xs:w-[361px] xll:w-[100%] xl:w-[520px]  w-[594px] mt-[8px] py-[12px] pl-[16px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] rounded-[6px]"
               type="text"
               id="tashlilot"
               placeholder="Orient group"
@@ -114,7 +113,7 @@
             @click="step = 2"
             type="Submit"
             aria-required="form"
-            class="bg-[#2E5BFF] mt-[28px] rounded-[6px] text-[#FFFFFF] text-[15px] py-[14px] w-[594px]"
+            class="bg-[#2E5BFF] mt-[28px] rounded-[6px] text-[#FFFFFF] text-[15px] py-[14px] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px]"
           >
             Yuborish
           </button>
@@ -154,8 +153,8 @@
     </div>
 
     <!-- Content -->
-    <div class="bg-[#F5F5F7] flex flex-col justify-between">
-      <div class="content pt-[62px] pl-[72px]">
+    <div class="bg-[#F5F5F7] flex flex-col  justify-between lg:mt-[100px]">
+      <div class="content pt-[62px] xs:pl-[30px] pl-[72px]">
         <div>
           <svg
             class="svg-v absolute translate-x-[-16px] translate-y-[-8px]"
@@ -171,7 +170,7 @@
             />
           </svg>
           <h2
-            class="sh-text w-[490px] z-10 text-justify font-medium relative text-[20px] leading-[30px] text-[#28293D]"
+            class="sh-text xss:w-[325px] smm:w-[386px] smm:text-[18px] xl:w-[430px] w-[490px] z-10 text-justify font-medium relative text-[20px] leading-[30px] text-[#28293D]"
           >
             Yuqori sinflarda bolalar shaxs b'lib, jamoa bo'lib shakllanadi. Ayni
             o'sha paytda ularni o'zlari o'rgangan muhitdan ajratib qo'ymaslik

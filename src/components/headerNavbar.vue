@@ -2,20 +2,20 @@
   <div v-if="$route.path === 'register' ? ShowNavBar = false : ShowNavBar= true" class="py-[24px]">
     <div class="headerNavbar flex items-center justify-around bg-[#FFFFFF]">
       <!-- Links -->
-      <div class="navbar-btns flex justify-between w-[556px] rounded-[6px]">
+      <div class="navbar-btns flex justify-between items-center   rounded-[6px] ">
         <router-link
           v-for="(item, index) in links"
           :key="index"
           :class="{homeactive:btnIndex === index}"
           @click="btnIndex = index"
-          class="text-[12px] text-[#3366FF99] border-[2px] border-[#E0E7FF] rounded-[6px] uppercase py-[14px] px-[60px]"
+          class="xs:text-[8px]  text-[12px]  flex items-center justify-center text-[#3366FF99] border-[2px] border-[#E0E7FF] rounded-[6px] uppercase mmd:py-[8px] py-[14px] xs:-[] xs:w-[80px] sm:w-[120px] md:w-[129px] lg:w-[150px] w-[193px]"
           :to="item.path"
           >{{ item.link }}</router-link
         >
       </div>
       <div class="flex">
         <!-- Search -->
-        <div class="flex">
+        <div class="flex mmd:hidden">
           <svg
             class="absolute mt-[13px] ml-[13px]"
             width="20"
@@ -40,7 +40,7 @@
             />
           </svg>
           <input
-            class="w-[284px] pl-[38px] rounded-[5px] bg-[#E8E8E8] outline-none text-[#B1B1B8] text-[18px] leading-[18px] py-[11px]"
+            class=" w-[284px] lg:w-[199px]  pl-[38px] rounded-[5px] bg-[#E8E8E8] outline-none text-[#B1B1B8] text-[18px] leading-[18px] mmd:py-[8px]  py-[11px]"
             type="search"
             placeholder="Izlash"
           />
@@ -49,7 +49,7 @@
         <Transition name="fade" appear>
           <span
             @click="on"
-            class="flex items-center justify-center rounded-[5px] bg-[#EDF1FD] ml-[20px] w-[123px] cursor-pointer"
+            class="flex items-center justify-center rounded-[5px] bg-[#EDF1FD] ml-[20px] xs:w-[90px] w-[123px] cursor-pointer"
             ><svg
               width="14"
               height="14"
@@ -70,16 +70,16 @@
               Filter</a
             ></span
           >
+          <!-- Modal -->
         </Transition>
       </div>
     </div>
   </div>
   <div
     class="modal-overlay bg-[#00000080]   items-center justify-center"
-    
   >
    <Transition>
-    <div class="w-[586px] py-[28px] px-[28px] bg-[#FFF] rounded-[12px]">
+    <div class="sm:w-[490px] smm:w-[450px] xss:w-[365px] w-[586px] py-[28px] px-[28px] bg-[#FFF] rounded-[12px]">
       <div class="flex justify-between">
         <h3
           class="modal-title text-[24px] text-[#28293D] font-medium pb-[28px]"
@@ -121,7 +121,7 @@
         <select
           name=""
           id="section"
-          class="w-[530px] py-[12px] pl-[16px] bg-[#E0E7FF33] text-[15px] text-[#2E384D] rounded-[6px]"
+          class="sm:w-[407px] smm:w-[334px] xs:w-[332px] w-[530px]  py-[12px] pl-[16px] bg-[#E0E7FF33] text-[15px] text-[#2E384D] rounded-[6px]"
         >
           <option class="" value="1">Barchasi</option>
           <hr>
@@ -138,7 +138,7 @@
           class="text-[12px] text-[#1D1D1F] font-medium leading-[14px] pt-[28px] pb-[16px] uppercase"
           >Homiylik summasi</label
         >
-        <div class="grid grid-cols-4 gap-[16px] pt-[12px]">
+        <div class="grid grid-cols-4 sm:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]">
           <label
             v-for="(item, index) in summs"
             :key="index"
@@ -161,7 +161,7 @@
 
         <label for="data" class="pt-[28px] pb-[8px]">Sana</label>
         <input
-          class="text-[#2E384D59] py-[12px] pl-[16px] mb-[28px] w-[253px]"
+          class="  text-[#2E384D59] py-[12px] pl-[16px] mb-[28px] w-[253px]"
           type="date"
           id="data"
           placeholder="kk.oo.yyyy - kk.oo.yyyy"

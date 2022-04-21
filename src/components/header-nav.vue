@@ -52,7 +52,7 @@
     <div v-if="true" class="flex">
       <div class="flex items-center bg-[#F1F1F3] rounded-[6px]">
         <h3
-          class="text-[#28293D] text-[13px] pt-[9px] pb-[11px] pl-[20px] pr-[24px]"
+          class="xs:hidden text-[#28293D] text-[13px] pt-[9px] pb-[11px] pl-[20px] pr-[24px]"
         >
           Shohrux
         </h3>

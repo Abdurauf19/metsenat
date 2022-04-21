@@ -1,10 +1,10 @@
 <template>
-  <div class="dashboard bg-[#E5E5E5] h-[120vh]">
+  <div class="dashboard bg-[#E5E5E5] h-[120vh] md:h-[155vh]">
     <!-- cards -->
-    <div class="dashboard-cards pt-[48px] gap-[28px] flex items-center justify-center">
+    <div class="dashboard-cards lg:flex-wrap pt-[48px] gap-[28px] flex items-center justify-center">
       <!-- Cards -->
       <div
-        class="dashboard-card flex items-center gap-[16px] w-[381px] rounded-[8px] bg-[#FFFFFF] py-[24px] px-[24px] border-[#2E5BFF14] border-[1px]"
+        class="dashboard-card flex items-center gap-[16px] xs:w-[330px] w-[381px] rounded-[8px] bg-[#FFFFFF] py-[24px] px-[24px] border-[#2E5BFF14] border-[1px]"
         v-for="(item, i) in data"
         :key="i"
       >
@@ -46,7 +46,7 @@
       <div class="flex items-center pt-[28px] ">
     <div class="Homiylar flex flex-col">
       <div class="homiylar-content">
-        <h2 class="text-[24px] text-[#2E384D] leading-[28px] font-medium pt-[24px] pl-[24px] pb-[8px]">Homiylar va talabalar soni</h2>
+        <h2 class="xs:text-[22px] xs:text-center text-[24px] text-[#2E384D] leading-[28px] font-medium pt-[24px] pl-[24px] pb-[8px]">Homiylar va talabalar soni</h2>
         <span class="flex gap-[36px] pl-[34px]">
           <p class="homiylar-content__text text-[12px] text-[#7A7A9D] leading-[12px]">Homiylar</p>
           <p class="homiylar-content__text2 text-[12px] text-[#7A7A9D] leading-[12px]">Talabalar</p>

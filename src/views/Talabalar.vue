@@ -1,8 +1,8 @@
 <template>
   <div class="c">
-     <div class="flex justify-end py-[28px] pr-[120px]">
-       <span class="flex items-center justify-center gap-[14px] bg-[#3366FF] rounded-[5px] w-[198px] cursor-pointer ">
-          <svg 
+     <div class="flex justify-end py-[28px] md:pr-[15px] mmd:pr-[70px] xll:pr-[100px]  pr-[120px]">
+       <span class="flex items-center justify-center sm:w-[120px] mmd:w-[150px] sm:gap-[10px] gap-[14px] bg-[#3366FF] rounded-[5px] w-[198px] cursor-pointer ">
+          <svg  class="sm:w-[14px] sm:h-[16px]"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -24,7 +24,7 @@
             stroke-linejoin="round"
           />
         </svg>
-        <router-link to="/Add-student" class="addstudient text-[14px]  text-[#FFFFFF] py-[9px] w-[100px]">Talaba qo‘shish</router-link>
+        <router-link to="/Add-student" class="addstudient sm:text-[10px] mmd:text-[12px] text-[14px]  text-[#FFFFFF] py-[9px] w-[100px]">Talaba qo‘shish</router-link>
        </span>
      </div>
              
@@ -32,21 +32,21 @@
     <div class="flex gap-[12px] justify-center items-center">
       <table class="tablee">
         <tr class="mb-[12px]">
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">#</th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">#</th>
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
             f.i.sh.
           </th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
             Talabalik turi
           </th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">OTM</th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-center OTM text-[#B1B1B8] uppercase font-medium">OTM</th>
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
             Sarflangan summa
           </th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
             Kontrakt miqdori
           </th>
-          <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+          <th class="xs:text-[5px] xss:text-[6px] sm:text-[7px] sm:text-center 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
             Amallar
           </th>
         </tr>
@@ -54,22 +54,22 @@
         <tr
           v-for="(item, i) in data"
           :key="i"
-          class="border-[1px] border-[#2E5BFF14] cursor-pointer pt-[12px]"
+          class="border-[1px] border-[#2E5BFF14] cursor-pointer pt-[12px] rounded-[10px]"
         >
-          <td class="text-[15px] text-[#1D1D1F]">{{ item.num }}</td>
-          <td class="text-[15px]text-[#1D1D1F]">{{ item.name }}</td>
-          <td class="text-[14px] text-[#1D1D1F]">{{ item.types }}</td>
-          <td class="univer text-[14px] text-[#1D1D1F] w-[200px]">
+          <td class=" xs:text-[6px] xss:text-[7px]  mdd:text-[9px] 1100:text-[12px] text-[15px] text-[#1D1D1F]">{{ item.num }}</td>
+          <td class=" xs:text-[6px] xss:text-[7px]  mdd:text-[9px] 1100:text-[12px] text-[15px] text-[#1D1D1F]">{{ item.name }}</td>
+          <td class=" xs:text-[6px] xss:text-[7px]  mdd:text-[9px] 1100:text-[11px] text-[14px] text-[#1D1D1F]">{{ item.types }}</td>
+          <td class=" xs:text-[6px] xss:text-[7px]  mdd:text-[9px] 1100:text-[11px] univer text-[14px] text-[#1D1D1F] w-[200px]">
             {{ item.Univer }}
           </td>
-          <td class="text-[14px] text-[#1D1D1F]">
+          <td class=" xs:text-[6px] xss:text-[7px] mdd:text-[9px] text-[14px] 1100:text-[11px]  text-[#1D1D1F]">
             {{ item.summs }} <span class="text-[#B1B1B8]">UZS</span>
           </td>
-          <td class="text-[14px] text-[#1D1D1F]">
+          <td class=" xs:text-[6px] xss:text-[7px] mdd:text-[9px]  1100:text-[11px] text-[14px] text-[#1D1D1F]">
             {{ item.allsums }}<span class="text-[#B1B1B8]">UZS</span>
           </td>
         <router-link to="/about-student"><td>
-            <svg
+            <svg class="md:w-[17px] md:h-[17px]"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -191,7 +191,36 @@ th {
   text-align: left;
   padding: 12px 23px;
 }
-.univer {
+.univer, .OTM {
   text-align: center;
+}
+
+@media only screen and (max-width: 1280px) {
+  td,
+th {
+  text-align: left;
+  padding: 12px 17px;
+}
+}
+@media only screen and (max-width: 992px) {
+  td,
+th {
+  text-align: left; 
+  padding: 10px 10px;
+}
+}
+@media only screen and (max-width: 576px) {
+  td,
+th {
+  text-align: left; 
+  padding: 10px 6px;
+}
+}
+@media only screen and (max-width: 532px) {
+  td,
+th {
+  text-align: left; 
+  padding: 7px 6px;
+}
 }
 </style>
