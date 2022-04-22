@@ -175,13 +175,13 @@
         </div>
       </div>
       <!-- sponsor student -->
-      <div v-if="false" class="sponsor-add">
+      <div  class="sponsor-add">
         <!-- title -->
         <div class="flex justify-between items-center">
           <h3 class="">Talabaga homiylar</h3>
           <button
             @click="on"
-            class="flex items-center justify-center gap-[14px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]"
+            class="xss:w-[157px] xs:gap-[11px] xss:py-[7px] xss:text-[13px] flex items-center justify-center gap-[14px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]"
           >
             <svg
               width="24"
@@ -211,14 +211,14 @@
         <!-- table -->
         <table class="tables">
           <tr class="mb-[12px]">
-            <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">#</th>
-            <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">#</th>
+            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
               f.i.sh.
             </th>
-            <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
               Ajratilingan summa
             </th>
-            <th class="text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
               Amallar
             </th>
           </tr>
@@ -227,9 +227,9 @@
             :key="i"
             class="border-[1px] border-[#FBFBFC] rounded-[8px] cursor-pointer"
           >
-            <td class="text-[15px] text-[#1D1D1F]">{{ i + 1 }}</td>
-            <td class="text-[15px] text-[#1D1D1F]">{{ item.name }}</td>
-            <td class="text-[15px] text-[#1D1D1F]">
+            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{ i + 1 }}</td>
+            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{ item.name }}</td>
+            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">
               {{ item.sum }} <span>UZS</span>
             </td>
             <td @click="btnOn" >
@@ -274,7 +274,7 @@
   </div>
   <!-- edit student -->
     <div class="edit-student flex items-center justify-center bg-[#00000080]">
-      <div class="px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
+      <div class="xxs:w-[370px] xs:w-[420px] xss:w-[475px] smm:w-[532px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
       <!-- Modal header -->
         <div class="modal-header flex items-center justify-between mb-[28px]">
           <h3 class="text-[24px] text-[#28293D] font-medium">Tahrirlash</h3>
@@ -305,18 +305,18 @@
         </div>
         <!-- Modal from or body -->
         <div class="mb-[28px]">
-            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
-            <input v-model="UserName" class="outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" required>
+            <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
+            <input v-model="UserName" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" required>
           </div>
           <!-- UserNumber -->
           <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
-            <input v-model="UserNumber" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
+           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
+            <input v-model="UserNumber" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
           </div>
           <!-- UserSelect -->
           <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">OTM</label>
-            <select  v-model="UserSelect" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
+           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">OTM</label>
+            <select  v-model="UserSelect" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
               <option value="0">O’zbekiston Davlat Jahon Tillari Universiteti</option>
               <option value="1">O’zbekiston Davlat Jahon Tillari Universiteti</option>
               <option value="2">O’zbekiston Davlat Jahon Tillari Universiteti</option>
@@ -325,8 +325,8 @@
           </div>
           <!-- User Sum -->
            <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSums">Kontrakt miqdori</label>
-            <input v-model="UserSums" class="outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserSums" placeholder="30 000 000 UZS" required>
+           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSums">Kontrakt miqdori</label>
+            <input v-model="UserSums" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserSums" placeholder="30 000 000 UZS" required>
           </div>
           <!-- User btn -->
           <div class="flex justify-end items-center">
@@ -373,7 +373,7 @@
   <div id="overlay" class="flex justify-center items-center bg-[#00000080]">
     <!-- Modal header -->
     <div
-      class="modal-sponser px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
+      class="modal-sponser xxs:w-[370px] xs:w-[415px]  xss:w-[470px] smm:w-[530px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
     >
       <div class="modal-header flex items-center justify-between mb-[28px]">
         <h3 class="text-[24px] text-[#28293D] font-medium">Homiy qo‘shish</h3>
@@ -413,7 +413,7 @@
           >
           <select
             v-model="UserName"
-            class="bg-[#E0E7FF33] outline-none mt-[8px] w-[530px] text-[15px] text-[#2E384D] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF] rounded-[6px]"
+            class=" xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px] bg-[#E0E7FF33] outline-none mt-[8px] w-[530px] text-[15px] text-[#2E384D] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF] rounded-[6px]"
             name=""
             id="Username"
           >
@@ -434,7 +434,7 @@
           >
           <input
             v-model="UserSum"
-            class="modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
+            class="modal-input xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px]  w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             id="UserSum"
             type="number"
             placeholder="Summani kiriting"
@@ -709,36 +709,86 @@ export default {
   .about-student {
     width: 690px;
   }
+  .sponsor-add {
+      width: 690px;
+      td, th {
+    padding: 25px 21px;
+  }
+    }
 }
 @media only screen and (max-width: 768px) {
   .about-student {
     width: 640px;
   }
+  .sponsor-add {
+      width: 640px;
+      td, th {
+    padding: 25px 21px;
+  }
+    }
+
+  
 }
 @media only screen and (max-width: 640px) {
   .about-student {
     width: 576px;
   }
+  .sponsor-add {
+      width: 576px;
+      td, th {
+    padding: 25px 11px;
+  }
+    }
 }
 @media only screen and (max-width: 576px) {
   .about-student {
     width: 532px;
   }
+   .sponsor-add {
+      width: 532px;
+      td, th {
+    padding: 25px 11px;
+  }
+
+  .edit-studentt {
+    width: 532px;
+  }
+    }
 }
 @media only screen and (max-width: 532px) {
   .about-student {
     width: 475px;
   }
+   .sponsor-add {
+      width: 475px;
+      td, th {
+    padding: 15px 11px;
+  }
+    }
 }
 @media only screen and (max-width: 475px) {
   .about-student {
     width: 420px;
   }
+  .sponsor-add {
+      width: 420px;
+      td, th {
+    padding: 25px 11px;
+  }
+    }
+  
 }
 @media only screen and (max-width: 420px) {
   .about-student {
     width: 370px;
+    padding: 25px;
   }
+  .sponsor-add {
+      width: 370px;
+      td, th {
+    padding: 25px 11px;
+  }
+    }
 }
 
 td,
