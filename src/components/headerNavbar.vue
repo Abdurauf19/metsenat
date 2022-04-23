@@ -2,7 +2,7 @@
   <div v-if="$route.path === 'register' ? ShowNavBar = false : ShowNavBar= true" class="py-[24px]">
     <div class="headerNavbar flex items-center justify-around bg-[#FFFFFF]">
       <!-- Links -->
-      <div class="navbar-btns flex justify-between items-center   rounded-[6px] ">
+      <div class="navbar-btns flex justify-between items-center ">
         <router-link
           v-for="(item, index) in links"
           :key="index"

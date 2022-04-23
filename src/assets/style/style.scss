@@ -76,6 +76,13 @@ body {font-family: 'Rubik';}
   display: none;
 }
 
+// Nav bar btns
+.navbar-btns:nth-last-child(2) {
+border-radius: 6px 0 0 6px;
+}
+.navbar-btns:nth-last-child(0) {
+border-radius: 0px 6px 6px 0px;
+}
 // Sign in Form
 .Login-container  {
 
@@ -130,6 +137,16 @@ border-radius: 5px
 .homeactive {
   background-color: #3366FF;
   color: #FFFFFF;
+}
+
+// sideBAr active
+.sidebarActive {
+  left: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.sideBar {
+  transition: all 0.4s ease-in-out;
 }
 
 
