@@ -1,4 +1,10 @@
 <template>
-  <router-view/>
-  
+ <div>
+   
+    <router-view/>
+     <headerNav/>
+ </div>
 </template>
+
+
+

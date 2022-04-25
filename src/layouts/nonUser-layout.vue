@@ -1,11 +1,12 @@
-<template>
-  <nav class="header-nav flex items-center justify-around">
+<template >
+
+   <nav class="header-nav flex items-center justify-around">
     <a href="#" class="header-logo"
-      ><img v-if="false" src="../assets/photos/Logo.png" alt="Logo" />
-      <img class="py-[20px]" src="../assets//photos/Logopro.png" alt="Logo pro"
+      ><img  src="../assets/photos/Logo.png" alt="Logo" />
+      <img v-if="false" class="py-[20px]" src="../assets//photos/Logopro.png" alt="Logo pro"
     /></a>
     <ul
-      v-if="false"
+      v-if="true"
       class="flex mmd:hidden items-center gap-[40px] pt-[33px] pb-[33px]"
     >
       <li>
@@ -66,7 +67,7 @@
       ></div>
     </div>
     <!-- nav type 2 -->
-    <div v-if="true" class="flex">
+    <div v-if="false" class="flex">
       <div class="flex items-center bg-[#F1F1F3] rounded-[6px]">
         <h3
           class="xs:hidden text-[#28293D] text-[13px] pt-[9px] pb-[11px] pl-[20px] pr-[24px]"
@@ -109,48 +110,5 @@
       </a>
     </div>
   </nav>
-
-  <!-- Aside navbar -->
-  <aside
-    :class="{ sidebarActive: sidebar }"
-    class="sideBar bg-[#3366FF] top-0 w-[50%] h-[100%] fixed flex justify-center items-center z-[999] left-[-100%]"
-  >
-    <ul class="flex items-center justify-center flex-col gap-[25px]">
-      <a href="#" class=""><img src="../assets/photos/Logopro.png" alt="" /></a>
-      <li>
-        <router-link to="/non-user" class="text-[20px] text-[#FFF]"
-          >Asosiy</router-link
-        >
-      </li>
-      <li>
-        <a href="#" class="text-[20px] text-[#FFF]">Grantlar</a>
-      </li>
-      <li>
-        <a href="#" class="text-[20px] text-[#FFF]">Soliq imtiyozlari</a>
-      </li>
-      <li>
-        <router-link to="/sign-in" class="text-[20px] text-[#FFF]"
-          >Kirish</router-link
-        >
-      </li>
-      <li>
-        <router-link to="/register" class="text-[20px] text-[#FFF]"
-          >Ro‘yxatdan o’tish</router-link
-        >
-      </li>
-    </ul>
-  </aside>
-
-  <div v-if="step === 1"></div>
+  <router-view/>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      step: 1,
-      sidebar: false,
-    };
-  },
-};
-</script>

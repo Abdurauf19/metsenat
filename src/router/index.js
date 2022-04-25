@@ -15,54 +15,62 @@ const routes = [
   {
     path: '/',
     name: 'index',
+    meta: {layout: 'main-layout'},
     component: index
   },
   {
     path: '/sign-in',
     name: 'signin',
-    meta: {layout: 'empty'},
+    meta: {layout: 'empty-layout'},
     component: signIn
   },
   {
     path: '/register',
     name: 'register',
-    meta: {layout: 'empty'},
+    meta: {layout: 'empty-layout'},
     component: register
   },
   {
     path: '/non-user',
     name: 'NoN user',
+    meta: {layout: 'nonUser-layout'},
     component: NonUser
 
   },
   {
     path: '/Dashboard',
     name: 'Dashboard',
+    meta: {layout: 'main-layout'},
     component: dashboard
   },
   {
     path: '/Homiylar',
     name: 'Homiylar',
+    meta: {layout: 'main-layout'},
     component: homiylar
   },
   {
     path: '/Talabalar',
     name: 'Talabalar',
+    meta: {layout: 'main-layout'},
     component: talabalar
   },
   {
     path: '/Add-student',
     name: 'Add-student',
+    meta: {layout: 'studient-layout'},
     component: AddStudent
   },
   {
     path: '/edit-student',
     name: 'edit-student',
+    meta: {layout: 'studient-layout'},
     component: EditStudent
   },
   {
     path: '/about-student',
     name: 'about-student',
+    meta: {layout: 'studient-layout'},
     component: aboutStudent
   },
   {

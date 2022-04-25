@@ -1,27 +1,35 @@
-<template >
+<template>
   <div>
-    <headerNav/>
-    <headerNavBar/>
-    <navModal/>
-    <router-view/>
+    <!-- <headerNav/>
+    <headerNavBar/> -->
+    <component :is="layoult">
+      <router-view />
+    </component>
   </div>
 </template>
 
-
 <script>
-import headerNav from './components/header-nav.vue'
-import headerNavBar from './components/headerNavbar.vue'
+import EmptyLayout from "./layouts/empty-layout.vue";
+import MainLayout from "./layouts/main-layout.vue";
+import NonUserLayout from "./layouts/nonUser-layout.vue";
+import studientLayout from "./layouts/studient-layout.vue"
+// import headerNav from './components/header-nav.vue'
+// import headerNavBar from './components/headerNavbar.vue'
 
 export default {
   components: {
-    headerNav,
-    headerNavBar,
-   
+    // headerNav,
+    // headerNavBar,
+    EmptyLayout,
+    MainLayout,
+    NonUserLayout,
+    studientLayout
   },
   computed: {
     layoult() {
-      console.log(this.$route);
-    }
-  }
-}
+      return this.$route.meta.layout || "empty-layout";
+    },
+  },
+  
+};
 </script>

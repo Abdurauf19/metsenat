@@ -1,5 +1,5 @@
 <template>
-<headerNav/>
+
 <div class="Login-container flex items-center justify-center h-[120vh]">
   <div>
     <a href="#" class="Login-logo "><img src="../assets/photos/Logo.png" class="pb-[48px]" alt="Logo"></a>
