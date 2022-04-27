@@ -1,6 +1,6 @@
 <template >
 
-   <nav class="header-nav flex items-center justify-around">
+   <nav class="mmd:mt-[41px] header-nav flex items-center justify-around">
     <a href="#" class="header-logo"
       ><img  src="../assets/photos/Logo.png" alt="Logo" />
       <img v-if="false" class="py-[20px]" src="../assets//photos/Logopro.png" alt="Logo pro"
@@ -57,13 +57,13 @@
       class="nav-hamburger hidden mmd:flex flex-col gap-[5px] cursor-pointer "
     >
       <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line1"
+        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line1"
       ></div>
       <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line2"
+        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line2"
       ></div>
       <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line3"
+        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line3"
       ></div>
     </div>
     <!-- nav type 2 -->
@@ -113,7 +113,7 @@
   <!-- Aside navbar -->
   <aside
     :class="{ sidebarActive: sidebar }"
-    class="sideBar bg-[#3366FF] top-0 w-[50%] h-[100%] fixed flex justify-center items-center z-[999] left-[-100%]"
+    class="sideBar bg-[#3366FF] top-0 w-[65%] h-[100%] fixed flex justify-center items-center z-[999] left-[-100%]"
   >
     <ul class="flex items-center justify-center flex-col gap-[25px]">
       <a href="#" class=""><img src="../assets/photos/Logopro.png" alt="" /></a>
