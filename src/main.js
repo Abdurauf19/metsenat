@@ -8,6 +8,9 @@ import toast from 'vue-toastification'
 import "vue-toastification/dist/index.css"
 import './assets/style/style.scss'
 
+
+
+
 // import VueI18n from 'vue-i18n'
 
 createApp(App)

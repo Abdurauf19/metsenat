@@ -476,7 +476,7 @@
 
   <!-- Edit sponsor modal -->
   <div class="flex edit-sponsor  justify-center items-center bg-[#00000080]">
-    <div class="px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
+    <div class="xxs:w-[370px] xs:w-[410px] xss:w-[470px] smm:w-[520px] sm:w-[560px]  px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
       <!-- Modal title -->
       <div>
         <h2 class="text-[24px] text-[#28293D] font-medium mb-[28px]">
@@ -494,7 +494,7 @@
           >
           <input
             v-model="UserName"
-            class="modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
+            class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
             placeholder="Ishmuhammedov Aziz Ishqobilovich"
           />
@@ -504,7 +504,7 @@
           <label for="userSum">Ajratilingan summa</label>
           <input
             v-model="UserSum"
-            class="modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
+            class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
             name=""
             id="userSum"

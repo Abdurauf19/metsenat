@@ -11,16 +11,17 @@
       <input class="Login-form__input w-[315px] py-[12px] pl-[16px]" type="text" v-model="userName" placeholder="F.I.Sh. (Familiya Ism Sharifingiz)" required>
       <!-- Email -->
       <label for="Login" class="Login-form__loginlabel text-[#1D1D1F] text-[12px] pb-[8px] fort-medium ">Email</label>
-      <input type="email" v-model="Email" class="Login-form__input w-[315px] py-[12px] pl-[16px]" placeholder="adm8904" required>
+      <input type="email" v-model="userEmail" class="Login-form__input w-[315px] py-[12px] pl-[16px]" placeholder="adm8904" required>
       <!-- Password -->
       <label for="Password" class="Login-formlabel text-[#1D1D1F] text-[12px] pb-[8px] fort-medium ">PAROL</label>
-      <input v-model="Password" type="password" class="Login-forminput w-[315px] py-[12px] pl-[16px]" placeholder="••••••••••" required>
+      <input v-model="userPassword" type="password" class="Login-forminput w-[315px] py-[12px] pl-[16px]" placeholder="••••••••••" required>
       <!-- Recaptcha -->
        <vue-recaptcha class="bg-[#FAFAFA]  w-[311px]" sitekey="sitekey"></vue-recaptcha>
        <!-- Button -->
       <button @click="SubmitFrom" type="Submit" class="Login-btn bg-[#2E5BFF] rounded-[6px] mt-[23px] py-[14px] w-[315px] text-[15px] text-[#FFFFFF]">Ro‘yxatdan o’tish</button>
     </form>
   </div>
+  
   </div>
 </template>
 
@@ -38,9 +39,12 @@
   data () {
     return {
       //  v$: useVuelidate() ,
-      userName: '',
-      Email: '',
-      Password: ''
+      form: {
+        userName: '',
+        userEmail: '',
+        userPassword: ''
+        },
+        errors: []
     }
   },
   
@@ -49,10 +53,7 @@
     Submithandler () {
       this.$router.push('/')
     }
-    // SubmitFrom () {
-    //   console.log(this.v$);
-    //   alert ("Muvaffaqiyatli royhatdan o'tdingiz")
-    // }
+    
   }
 
 }

@@ -28,6 +28,10 @@
             </td></router-link>    
         </tr>
       </table>
+      <div>
+       
+      </div>
+         
     </div>
   </div>
 
@@ -133,9 +137,7 @@ export default {
     }
   },
 
-  methods: {
-    
-  }
+ 
 };
 
 

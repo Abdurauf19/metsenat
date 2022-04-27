@@ -52,20 +52,6 @@
         >Ro‘yxatdan o’tish</router-link
       >
     </ul>
-    <div
-      @click="sidebar = !sidebar"
-      class="nav-hamburger hidden mmd:flex flex-col gap-[5px] cursor-pointer "
-    >
-      <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line1"
-      ></div>
-      <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line2"
-      ></div>
-      <div
-        class="w-[30px] rounded-[6px] bg-black h-[3px] hamburger-line3"
-      ></div>
-    </div>
     <!-- nav type 2 -->
     <div v-if="true" class="flex">
       <div class="flex items-center bg-[#F1F1F3] rounded-[6px]">
