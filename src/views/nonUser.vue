@@ -61,14 +61,17 @@
             />
           </div>
 
-          <label class="text-[14px] xss:text-[12px] text-[#1D1D1F] font-medium uppercase"
+          <label
+            class="text-[14px] xss:text-[12px] text-[#1D1D1F] font-medium uppercase"
             >To'lov summasi</label
           >
-          <div class="grid grid-cols-3 xll:grid-cols-2 lg:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]">
+          <div
+            class="grid grid-cols-3 xll:grid-cols-2 lg:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]"
+          >
             <label
               v-for="(item, index) in summs"
               :key="index"
-              class="cursor-pointer  radio  xl:w-[150px] w-[179px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
+              class="cursor-pointer radio xl:w-[150px] w-[179px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
               :class="{ galochka: currentSum === index }"
               @click="currentSum = index"
             >
@@ -88,7 +91,7 @@
             <Transition>
               <input
                 v-if="currentSum === 5"
-                class=" xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
+                class="xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
                 type="number"
                 placeholder="0"
                 v-model="userSum"
@@ -97,13 +100,13 @@
           </div>
           <div class="mt-[28px] flex flex-col" v-if="btnIndex === 1">
             <label
-              class=" xss:text-[12px]text-[14px] text-[#1D1D1F] font-medium uppercase"
+              class="xss:text-[12px]text-[14px] text-[#1D1D1F] font-medium uppercase"
               for="tashkilot"
               >Tashkilot nomi</label
             >
             <input
               v-model="userCompany"
-              class=" xs:w-[361px] xll:w-[100%] xl:w-[520px]  w-[594px] mt-[8px] py-[12px] pl-[16px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] rounded-[6px]"
+              class="xs:w-[361px] xll:w-[100%] xl:w-[520px] w-[594px] mt-[8px] py-[12px] pl-[16px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] rounded-[6px]"
               type="text"
               id="tashlilot"
               placeholder="Orient group"
@@ -153,7 +156,7 @@
     </div>
 
     <!-- Content -->
-    <div class="bg-[#F5F5F7] flex flex-col  justify-between lg:mt-[100px]">
+    <div class="bg-[#F5F5F7] flex flex-col justify-between lg:mt-[100px]">
       <div class="content pt-[62px] xs:pl-[30px] pl-[72px]">
         <div>
           <svg

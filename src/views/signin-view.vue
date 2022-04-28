@@ -44,9 +44,9 @@
           sitekey="sitekey"
         ></vue-recaptcha>
         <p class="text-[14px] text-[red]" v-if="errMsg">{{ errMsg }}</p>
-        <p v-if="errMsg" class="text-[15px] flex items-center gap-[10px] underline">
+        <p v-if="errMsg" class="text-[15px] flex items-center gap-[10px] ">
           Royxatdan o'tmanmisiz ?<router-link
-            class="text-[12px] text-[#2E5BFF]"
+            class="text-[12px] underline text-[#2E5BFF]"
             to="register"
             >Royxatdan otish</router-link
           >

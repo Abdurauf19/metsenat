@@ -1,114 +1,202 @@
 <template>
-   <!-- Modal -->
-    <div 
-      class="modal-edit  items-center justify-center bg-[#00000080] "
-    >
-      <div class="edit-modal">
-        <div class="flex items-center justify-between mb-[28px]">
-          <h2 class="text-[24px] text-[#28293D] leading-[28px]">Tahrirlash</h2>
-          <svg
-           @click="ModalOff"
-            class="cursor-pointer"
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21 7L7 21"
-              stroke="#B2B7C1"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M7 7L21 21"
-              stroke="#B2B7C1"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-        <hr />
-        <!-- Form -->
-        <form>
-          <!-- Btns -->
-          <div class="flex items-center mt-[28px] mb-[32px]">
-            <div
-              class="btnss cursor-pointer w-[265px] flex items-center justify-center border-[2px] border-[#E0E7FF]"
-              v-for="(item, i) in btns"
-              :key="i"
-              :class="{ btnActive: btnIndexx === i }"
-              @click="btnIndexx = i"
-            >
-              <a href="#" class="py-[9px]">{{ item.btn }}</a>
-            </div>
-          </div>
-          <!-- Username -->
-          <div class="mb-[28px]">
-            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
-            <input v-model="UserName" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" requiredqqq>
-          </div>
-          <!-- UserNumber -->
-          <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
-            <input v-model="UserNumber" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
-          </div>
-          <!-- UserSelect -->
-          <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">Holati</label>
-            <select  v-model="UserSelect" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]" id="UserSelect" required>
-              <option value="0">Tasdiqlangan</option>
-              <option value="1">Yangi</option>
-              <option value="2">Moderatsiyada</option>
-              <option value="3">Bekor qilingan</option>
-            </select>
-          </div>
-          <!-- UserSum -->
-          <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSum">Homiylik summasi</label>
-            <select  v-model="UserSum" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" id="UserSum" required>
-              <option value="0">30 000 000 UZS</option>
-              <option value="1">20 000 000 UZS</option>
-              <option value="2">10 000 000 UZS</option>
-              <option value="3">1 000 000 UZS</option>
-            </select>
-          </div>
-          <!-- UserPay -->
-          <div class="mb-[28px]">
-           <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserPay">To‘lov turi</label>
-            <select  v-model="UserPay" class="pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" id="UserPay" required>
-              <option value="0">Pul o‘tkazmalari</option>
-              <option value="1">Naxt</option>
-              <option value="2">Viza</option>
-            </select>
-          </div>
-          <!-- User group -->
-          <Transition>
-          <div v-if="btnIndexx === 1" class="mb-[28px]">
-            <label class=" text-[14px] text-[#1D1D1F] uppercase font-medium" for="Usergroup">Tashkilot nomi</label>
-            <input v-model="Usergroup" class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px]  w-[530px] rounded-[6px]" type="text" id="Usergroup" placeholder="Orient Group" required>
-          </div>
-          </Transition>
-          <hr>
-          <!-- Btn -->
-          <div class="mt-[28px] flex items-center justify-end">
-            <span class="editbtn">
-        <router-link to="/Homiylar"><button type="Submit" class="editbtn text-[14px] text-[#FFF]"> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 19V11H5V19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 1V6H13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>Saqlash</button></router-link>
-            </span>
-          </div>
-        </form>
+  <!-- Modal -->
+  <div class="modal-edit items-center justify-center bg-[#00000080]">
+    <div class="edit-modal">
+      <div class="flex items-center justify-between mb-[28px]">
+        <h2 class="text-[24px] text-[#28293D] leading-[28px]">Tahrirlash</h2>
+        <svg
+          @click="ModalOff"
+          class="cursor-pointer"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 7L7 21"
+            stroke="#B2B7C1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7 7L21 21"
+            stroke="#B2B7C1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </div>
+      <hr />
+      <!-- Form -->
+      <form>
+        <!-- Btns -->
+        <div class="flex items-center mt-[28px] mb-[32px]">
+          <div
+            class="btnss cursor-pointer w-[265px] flex items-center justify-center border-[2px] border-[#E0E7FF]"
+            v-for="(item, i) in btns"
+            :key="i"
+            :class="{ btnActive: btnIndexx === i }"
+            @click="btnIndexx = i"
+          >
+            <a href="#" class="py-[9px]">{{ item.btn }}</a>
+          </div>
+        </div>
+        <!-- Username -->
+        <div class="mb-[28px]">
+          <label
+            class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+            for="UserName"
+            >F.I.Sh. (Familiya Ism Sharifingiz)</label
+          >
+          <input
+            v-model="UserName"
+            class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+            type="text"
+            id="UserName"
+            placeholder="Ishmuhammedov Aziz Ishqobilovich"
+            requiredqqq
+          />
+        </div>
+        <!-- UserNumber -->
+        <div class="mb-[28px]">
+          <label
+            class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+            for="UserNumber"
+            >Telefon raqam</label
+          >
+          <input
+            v-model="UserNumber"
+            class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+            type="text"
+            id="UserNumber"
+            placeholder="+998 88 973-72-60"
+            required
+          />
+        </div>
+        <!-- UserSelect -->
+        <div class="mb-[28px]">
+          <label
+            class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+            for="UserSelect"
+            >Holati</label
+          >
+          <select
+            v-model="UserSelect"
+            class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+            id="UserSelect"
+            required
+          >
+            <option value="0">Tasdiqlangan</option>
+            <option value="1">Yangi</option>
+            <option value="2">Moderatsiyada</option>
+            <option value="3">Bekor qilingan</option>
+          </select>
+        </div>
+        <!-- UserSum -->
+        <div class="mb-[28px]">
+          <label
+            class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+            for="UserSum"
+            >Homiylik summasi</label
+          >
+          <select
+            v-model="UserSum"
+            class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+            id="UserSum"
+            required
+          >
+            <option value="0">30 000 000 UZS</option>
+            <option value="1">20 000 000 UZS</option>
+            <option value="2">10 000 000 UZS</option>
+            <option value="3">1 000 000 UZS</option>
+          </select>
+        </div>
+        <!-- UserPay -->
+        <div class="mb-[28px]">
+          <label
+            class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+            for="UserPay"
+            >To‘lov turi</label
+          >
+          <select
+            v-model="UserPay"
+            class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+            id="UserPay"
+            required
+          >
+            <option value="0">Pul o‘tkazmalari</option>
+            <option value="1">Naxt</option>
+            <option value="2">Viza</option>
+          </select>
+        </div>
+        <!-- User group -->
+        <Transition>
+          <div v-if="btnIndexx === 1" class="mb-[28px]">
+            <label
+              class="text-[14px] text-[#1D1D1F] uppercase font-medium"
+              for="Usergroup"
+              >Tashkilot nomi</label
+            >
+            <input
+              v-model="Usergroup"
+              class="pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] xs:w-[313px] smm:w-[391px] w-[530px] rounded-[6px]"
+              type="text"
+              id="Usergroup"
+              placeholder="Orient Group"
+              required
+            />
+          </div>
+        </Transition>
+        <hr />
+        <!-- Btn -->
+        <div class="mt-[28px] flex items-center justify-end">
+          <span class="editbtn">
+            <router-link to="/Homiylar"
+              ><button type="Submit" class="editbtn text-[14px] text-[#FFF]">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15 19V11H5V19"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M5 1V6H13"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+                >Saqlash
+              </button></router-link
+            >
+          </span>
+        </div>
+      </form>
     </div>
-    <!--  -->
+  </div>
+  <!--  -->
   <div class="conteinerrr bg-[#E5E5E5]">
-    <div class="flex items-center xs:pl-[15px] mdd:pl-[30px] pl-[120px] bg-[#FFFFFF]">
+    <div
+      class="flex items-center xs:pl-[15px] mdd:pl-[30px] pl-[120px] bg-[#FFFFFF]"
+    >
       <router-link to="/Homiylar">
         <svg
           width="28"
@@ -132,7 +220,9 @@
             stroke-linejoin="round"
           /></svg
       ></router-link>
-      <h3 class="ml-[21px] py-[26px] sm:text-[20px] text-[24px] text-[#28293D] font-medium">
+      <h3
+        class="ml-[21px] py-[26px] sm:text-[20px] text-[24px] text-[#28293D] font-medium"
+      >
         Ishmuhammedov Aziz Ishqobilovich
       </h3>
       <p
@@ -142,7 +232,7 @@
       </p>
     </div>
     <!--  -->
-    
+
     <!-- Carts -->
     <div class="flex items-center justify-center">
       <div class="homiy-cart mb-[163px]">
@@ -215,7 +305,9 @@
                 </clipPath>
               </defs></svg
           ></span>
-          <h3 class="smm:text-[13px] text-[16px] text-[#212121] w-[163px] font-medium">
+          <h3
+            class="smm:text-[13px] text-[16px] text-[#212121] w-[163px] font-medium"
+          >
             Ishmuhammedov Aziz Ishqobilovich
           </h3>
         </div>
@@ -226,7 +318,9 @@
             >
               telefon raqam
             </p>
-            <h3 class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]">
+            <h3
+              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]"
+            >
               +998 99 973-72-60
             </h3>
           </span>
@@ -236,8 +330,10 @@
             >
               Homiylik summasi
             </p>
-            <h3 class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]">
-             30 000 000 UZS
+            <h3
+              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]"
+            >
+              30 000 000 UZS
             </h3>
           </span>
         </div>
@@ -250,13 +346,13 @@
     </div>
   </div>
 </template>
-//  
+//
 <script>
 export default {
   data() {
     return {
       // Modal
-      
+
       // btn index
       btns: [
         {
@@ -284,7 +380,7 @@ export default {
     ModalOff() {
       document.querySelector(".modal-edit").style.display = "none";
     },
-  }
+  },
 };
 </script>
 
@@ -329,13 +425,11 @@ export default {
 @media only screen and (max-width: 475px) {
   .edit-modal {
     width: 370px;
-     
 
-     .editbtn {
-       padding: 6px 0;
-     }
+    .editbtn {
+      padding: 6px 0;
+    }
   }
-  
 }
 
 .btnss {
@@ -358,7 +452,8 @@ export default {
   justify-content: center;
   gap: 10px;
   background-color: #3366ff;
-  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16);
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
   border-radius: 5px;
   padding: 9px 0;
   width: 150px;

@@ -1,192 +1,272 @@
-<template >
-  <div class=" px-[40px] smm:px-[5px] mmd:px-[15px]">
-    <div class="flex gap-[12px] justify-center items-center" >
-      <table class="tablee ">
-        <tr class="  mb-[12px]" >
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">#</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">f.i.sh.</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Tel.Raqami</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Homiylik summasi</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Sarflangan summa</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Sana</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Holati</th>
-          <th class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px]  text-[#B1B1B8] uppercase font-medium">Amallar</th>
+<template>
+  <div class="px-[40px] smm:px-[5px] mmd:px-[15px]">
+    <div class="flex gap-[12px] justify-center items-center">
+      <table class="tablee mb-[300px]">
+        <tr class="mb-[12px]">
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            #
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            f.i.sh.
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Tel.Raqami
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Homiylik summasi
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Sarflangan summa
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Sana
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Holati
+          </th>
+          <th
+            class="xs:text-[4px] smm:text-[6px] sm:text-[7px] 1100:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+          >
+            Amallar
+          </th>
         </tr>
-       
-    <tr v-for="(item, i) in data" :key="i"  class="border-[1px] border-[#2E5BFF14] cursor-pointer  ">
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.num}}</td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.name}}</td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.number}}</td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.summs}} <span class="text-[#B1B1B8]">UZS</span></td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.summs1}} <span class="text-[#B1B1B8]">UZS</span></td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.date}}</td>
-          <td class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px]  text-[#1D1D1F]">{{item.position}}</td>
-       <router-link to="/edit-student"><td><svg class="md:w-[17px] md:h-[17px]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path opacity="0.4" d="M23.855 11.3917C21.5954 6.98292 17.1221 4 12 4C6.87789 4 2.40331 6.985 0.144977 11.3921C0.0496613 11.5806 0 11.7889 0 12.0002C0 12.2115 0.0496613 12.4198 0.144977 12.6083C2.40456 17.0171 6.87789 20 12 20C17.1221 20 21.5966 17.015 23.855 12.6079C23.9503 12.4194 24 12.2111 24 11.9998C24 11.7885 23.9503 11.5802 23.855 11.3917ZM12.0058 18H12C10.4097 17.9992 8.88485 17.3669 7.76077 16.2419C6.63669 15.117 6.00542 13.5917 6.00581 12.0015C6.0062 10.4112 6.6382 8.88618 7.76283 7.76182C8.88746 6.63747 10.4126 6.00583 12.0029 6.00583C13.5932 6.00583 15.1183 6.63747 16.243 7.76182C17.3676 8.88618 17.9996 10.4112 18 12.0015C18.0004 13.5917 17.3691 15.117 16.245 16.2419C15.1209 17.3669 13.5961 17.9992 12.0058 18Z" fill="#3366FF"/>
-            <path d="M15.8608 13.0363C15.7247 13.5433 15.4899 14.0186 15.1698 14.4347C14.8497 14.8509 14.4506 15.1998 13.9955 15.4614C13.5403 15.7231 13.038 15.8924 12.5173 15.9596C11.9966 16.0268 11.4677 15.9906 10.961 15.853C10.4544 15.7155 9.97979 15.4794 9.56452 15.1581C9.14926 14.8368 8.80147 14.4368 8.54107 13.9809C8.28068 13.525 8.11279 13.0222 8.04704 12.5013C7.98129 11.9805 8.01897 11.4517 8.15791 10.9454C8.54194 11.228 9.01453 11.3636 9.48997 11.3277C9.96541 11.2917 10.4122 11.0865 10.7494 10.7494C11.0865 10.4122 11.2917 9.96542 11.3276 9.48998C11.3636 9.01454 11.228 8.54195 10.9454 8.15792C11.6237 7.96431 12.3412 7.95486 13.0243 8.13054C13.7075 8.30621 14.3314 8.66067 14.8321 9.15747C15.3328 9.65426 15.6922 10.2755 15.8732 10.9572C16.0542 11.6389 16.0504 12.3565 15.8621 13.0363H15.8608Z" fill="#3366FF"/>
-            </svg>
-            </td></router-link>    
+
+        <tr
+          data-aos="fade-up"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="800"
+          v-for="(item, i) in data"
+          :key="i"
+          class="border-[1px] border-[#2E5BFF14] cursor-pointer"
+        >
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.num }}
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.name }}
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.number }}
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.summs }} <span class="text-[#B1B1B8]">UZS</span>
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.summs1 }} <span class="text-[#B1B1B8]">UZS</span>
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.date }}
+          </td>
+          <td
+            class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+          >
+            {{ item.position }}
+          </td>
+          <router-link to="/edit-student"
+            ><td>
+              <svg
+                class="md:w-[17px] md:h-[17px]"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.4"
+                  d="M23.855 11.3917C21.5954 6.98292 17.1221 4 12 4C6.87789 4 2.40331 6.985 0.144977 11.3921C0.0496613 11.5806 0 11.7889 0 12.0002C0 12.2115 0.0496613 12.4198 0.144977 12.6083C2.40456 17.0171 6.87789 20 12 20C17.1221 20 21.5966 17.015 23.855 12.6079C23.9503 12.4194 24 12.2111 24 11.9998C24 11.7885 23.9503 11.5802 23.855 11.3917ZM12.0058 18H12C10.4097 17.9992 8.88485 17.3669 7.76077 16.2419C6.63669 15.117 6.00542 13.5917 6.00581 12.0015C6.0062 10.4112 6.6382 8.88618 7.76283 7.76182C8.88746 6.63747 10.4126 6.00583 12.0029 6.00583C13.5932 6.00583 15.1183 6.63747 16.243 7.76182C17.3676 8.88618 17.9996 10.4112 18 12.0015C18.0004 13.5917 17.3691 15.117 16.245 16.2419C15.1209 17.3669 13.5961 17.9992 12.0058 18Z"
+                  fill="#3366FF"
+                />
+                <path
+                  d="M15.8608 13.0363C15.7247 13.5433 15.4899 14.0186 15.1698 14.4347C14.8497 14.8509 14.4506 15.1998 13.9955 15.4614C13.5403 15.7231 13.038 15.8924 12.5173 15.9596C11.9966 16.0268 11.4677 15.9906 10.961 15.853C10.4544 15.7155 9.97979 15.4794 9.56452 15.1581C9.14926 14.8368 8.80147 14.4368 8.54107 13.9809C8.28068 13.525 8.11279 13.0222 8.04704 12.5013C7.98129 11.9805 8.01897 11.4517 8.15791 10.9454C8.54194 11.228 9.01453 11.3636 9.48997 11.3277C9.96541 11.2917 10.4122 11.0865 10.7494 10.7494C11.0865 10.4122 11.2917 9.96542 11.3276 9.48998C11.3636 9.01454 11.228 8.54195 10.9454 8.15792C11.6237 7.96431 12.3412 7.95486 13.0243 8.13054C13.7075 8.30621 14.3314 8.66067 14.8321 9.15747C15.3328 9.65426 15.6922 10.2755 15.8732 10.9572C16.0542 11.6389 16.0504 12.3565 15.8621 13.0363H15.8608Z"
+                  fill="#3366FF"
+                />
+              </svg></td
+          ></router-link>
         </tr>
       </table>
-      <div>
-       
-      </div>
-         
+      <div></div>
     </div>
   </div>
-
 </template>
 
 <script>
-
 export default {
-  data () {
+  data() {
     return {
       data: [
         {
-          num:'1',
-          name:'Alimov Abror Xabibullayevich',
-          number:'+99899 973-72-60',
-          summs:'30 000 000',
-          summs1:'0',
-          date:'15.01.2021',
-          position:'Yangi',
+          num: "1",
+          name: "Alimov Abror Xabibullayevich",
+          number: "+99899 973-72-60",
+          summs: "30 000 000",
+          summs1: "0",
+          date: "15.01.2021",
+          position: "Yangi",
         },
         {
-          num:'2',
-          name:'Saimov Rustam Saimjonovich',
-          number:'+99899 973-72-60',
-          summs:'1 000 000',
-          summs1:'0',
-          date:'02.02.2021',
-          position:'Moderatsiyada',
+          num: "2",
+          name: "Saimov Rustam Saimjonovich",
+          number: "+99899 973-72-60",
+          summs: "1 000 000",
+          summs1: "0",
+          date: "02.02.2021",
+          position: "Moderatsiyada",
         },
         {
-          num:'3',
-          name:'Sanginov Otabek Muratovich',
-          number:'+99899 973-72-60',
-          summs:'5 000 000 ',
-          summs1:'5 000 000 ',
-          date:'20.04.2021',
-          position:'Tasdiqlangan',
+          num: "3",
+          name: "Sanginov Otabek Muratovich",
+          number: "+99899 973-72-60",
+          summs: "5 000 000 ",
+          summs1: "5 000 000 ",
+          date: "20.04.2021",
+          position: "Tasdiqlangan",
         },
         {
-          num:'4',
-          name:'Nazarov Sanjar Olimovich',
-          number:'+99899 973-72-60',
-          summs:'7 000 000 ',
-          summs1:' 7 000 000',
-          date:'03.05.2021',
-          position:'Bekor qilingan',
+          num: "4",
+          name: "Nazarov Sanjar Olimovich",
+          number: "+99899 973-72-60",
+          summs: "7 000 000 ",
+          summs1: " 7 000 000",
+          date: "03.05.2021",
+          position: "Bekor qilingan",
         },
         {
-          num:'5',
-          name:'Ibragimov Sohib Mirfayozovich',
-          number:'+99899 973-72-60',
-          summs:'10 000 000 ',
-          summs1:'0',
-          date:'10.05.2021',
-          position:'Moderatsiyada',
+          num: "5",
+          name: "Ibragimov Sohib Mirfayozovich",
+          number: "+99899 973-72-60",
+          summs: "10 000 000 ",
+          summs1: "0",
+          date: "10.05.2021",
+          position: "Moderatsiyada",
         },
         {
-          num:'6',
-          name:'Ishmuhammedov Aziz Ishqobilovich',
-          number:'+99899 973-72-60',
-          summs:'30 000 000',
-          summs1:'1 000 000 ',
-          date:'17.06.2021',
-          position:'Bekor qilingan',
+          num: "6",
+          name: "Ishmuhammedov Aziz Ishqobilovich",
+          number: "+99899 973-72-60",
+          summs: "30 000 000",
+          summs1: "1 000 000 ",
+          date: "17.06.2021",
+          position: "Bekor qilingan",
         },
         {
-          num:'7',
-          name:'Qosimov Furqat Xabibullayevich',
-          number:'+99899 973-72-60',
-          summs:'50 000 000',
-          summs1:'0',
-          date:'21.06.2021',
-          position:'Yangi',
+          num: "7",
+          name: "Qosimov Furqat Xabibullayevich",
+          number: "+99899 973-72-60",
+          summs: "50 000 000",
+          summs1: "0",
+          date: "21.06.2021",
+          position: "Yangi",
         },
         {
-          num:'8',
-          name:'Ortiqov Abror Bahodirovich',
-          number:'+99899 973-72-60',
-          summs:'70 000 000 ',
-          summs1:'0',
-          date:'25.02.2021',
-          position:'Yangi',
+          num: "8",
+          name: "Ortiqov Abror Bahodirovich",
+          number: "+99899 973-72-60",
+          summs: "70 000 000 ",
+          summs1: "0",
+          date: "25.02.2021",
+          position: "Yangi",
         },
         {
-          num:'9',
-          name:'Alimov Abror Xabibullayevich',
-          number:'+99899 973-72-60',
-          summs:'50 000 000',
-          summs1:'20 000 000',
-          date:'15.01.2021',
-          position:'Tasdiqlangan',
+          num: "9",
+          name: "Alimov Abror Xabibullayevich",
+          number: "+99899 973-72-60",
+          summs: "50 000 000",
+          summs1: "20 000 000",
+          date: "15.01.2021",
+          position: "Tasdiqlangan",
         },
         {
-          num:'10',
-          name:'Isfandiyorov  Iqbol Bobomirzayevich',
-          number:'+99899 973-72-60',
-          summs:'1 000 000',
-          summs1:'0',
-          date:'28.02.2021',
-          position:'Moderatsiyada',
+          num: "10",
+          name: "Isfandiyorov  Iqbol Bobomirzayevich",
+          number: "+99899 973-72-60",
+          summs: "1 000 000",
+          summs1: "0",
+          date: "28.02.2021",
+          position: "Moderatsiyada",
         },
-      ]
-    }
+      ],
+    };
   },
   mounted() {
-      fetch('http://localhost:3000/Homiylar')
-    .then(res => res.json())
-    .then(data => this.data = data)
-    .catch(err => console.log(err.message))
-    }
- 
+    fetch("http://localhost:3000/Homiylar")
+      .then((res) => res.json())
+      .then((data) => (this.data = data))
+      .catch((err) => console.log(err.message));
+  },
 };
-
-
 </script>
 
 <style lang="scss" scoped>
-td, th {
+td,
+th {
   text-align: left;
   padding: 25px 21px;
   border-radius: 10px;
 }
 
 @media only screen and (max-width: 1280px) {
-  td, th {
+  td,
+  th {
     padding: 25px 15px;
   }
 }
 @media only screen and (max-width: 1100px) {
-  td, th {
+  td,
+  th {
     padding: 25px 13px;
   }
 }
 @media only screen and (max-width: 992px) {
-  td, th {
+  td,
+  th {
     padding: 15px 13px;
     text-align: center;
   }
 }
-@media only screen and (max-width:768px) {
-  td, th {
+@media only screen and (max-width: 768px) {
+  td,
+  th {
     padding: 15px 8px;
   }
 }
-@media only screen and (max-width:640px) {
-  td, th {
+@media only screen and (max-width: 640px) {
+  td,
+  th {
     padding: 12px 8px;
   }
 }
-@media only screen and (max-width:475px) {
-  td, th {
+@media only screen and (max-width: 475px) {
+  td,
+  th {
     padding: 9px 6px;
   }
 }
-
-
 </style>
-

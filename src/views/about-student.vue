@@ -497,7 +497,7 @@
             class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
             placeholder="Ishmuhammedov Aziz Ishqobilovich"
-          />
+      F    />
         </div>
         <!-- userSum -->
         <div class="my-[28px]">
