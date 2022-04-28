@@ -61,7 +61,7 @@
           type="Submit"
           class="Login-btn bg-[#2E5BFF] rounded-[6px] mt-[23px] py-[14px] w-[315px] text-[15px] text-[#FFFFFF]"
         >
-          sign In With Google
+          Google orqali ro'yxatdan o'tish
         </button>
       </form>
     </div>

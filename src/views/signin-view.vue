@@ -44,7 +44,7 @@
           sitekey="sitekey"
         ></vue-recaptcha>
         <p class="text-[14px] text-[red]" v-if="errMsg">{{ errMsg }}</p>
-        <p v-if="errMsg" class="text-[15px] flex items-center gap-[10px]">
+        <p v-if="errMsg" class="text-[15px] flex items-center gap-[10px] underline">
           Royxatdan o'tmanmisiz ?<router-link
             class="text-[12px] text-[#2E5BFF]"
             to="register"
@@ -59,13 +59,13 @@
         >
           Kirish
         </button>
-        <button
+        <!-- <button
           @click="signInWithGoogle"
           type="submit"
           class="Login-btn bg-[#2E5BFF] rounded-[6px] mt-[23px] py-[14px] w-[315px] text-[15px] text-[#FFFFFF]"
         >
           Google orqali kirish
-        </button>
+        </button> -->
       </form>
     </div>
   </div>
@@ -76,8 +76,8 @@ import { ref } from "vue";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
+  // GoogleAuthProvider,
+  // signInWithPopup,
 } from "firebase/auth";
 import { useRouter } from "vue-router";
 const userEmail = ref("");
@@ -110,17 +110,17 @@ const register = () => {
       }
     });
 
-    const signInWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(getAuth(), provider)
-      .then((result) => {
-        console.log(result.user);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-};
+//     const signInWithGoogle = () => {
+//     const provider = new GoogleAuthProvider();
+//     signInWithPopup(getAuth(), provider)
+//       .then((result) => {
+//         console.log(result.user);
+//         router.push("/");
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+// };
 };
 
 // import { email, required, minLength } from 'vuelidate/lib/validators';

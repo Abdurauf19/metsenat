@@ -144,31 +144,31 @@
 
 </template>
 
-<script setup>
-const sidebar = false
-import { onMounted, ref } from "vue";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
-import { useRouter } from "vue-router";
+// <script setup>
+// const sidebar = false
+// import { onMounted, ref } from "vue";
+// import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
+// import { useRouter } from "vue-router";
 
-const router = useRouter();
-const isLogging = ref(false);
+// const router = useRouter();
+// const isLogging = ref(false);
 
-let auth;
-onMounted(() => {
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      isLogging.value = true;
-    }else {
-      isLogging.value = false
-    }
-  })
-})
+// let auth;
+// onMounted(() => {
+//   auth = getAuth();
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       isLogging.value = true;
+//     }else {
+//       isLogging.value = false
+//     }
+//   })
+// })
 
- const handleSignOut = () => {
-   signOut(auth).then(() => {
-     router.push('/')
-   })
- }
+//  const handleSignOut = () => {
+//    signOut(auth).then(() => {
+//      router.push('/')
+//    })
+//  }
 // sidebar: false
 </script>
