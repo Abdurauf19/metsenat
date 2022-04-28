@@ -76,7 +76,7 @@
           </svg>
         </a>
       </div>
-      <a @click="$router.push('/sign-in')" href="" class="pl-[43px]"
+      <a @click="$router.push('/non-user')"  href="" class="pl-[43px]"
         ><svg
           width="32"
           height="32"
@@ -142,16 +142,33 @@
     </ul>
   </aside>
 
-  <div v-if="step === 1"></div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      step: 1,
-      sidebar: false,
-    };
-  },
-};
+<script setup>
+const sidebar = false
+import { onMounted, ref } from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const isLogging = ref(false);
+
+let auth;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLogging.value = true;
+    }else {
+      isLogging.value = false
+    }
+  })
+})
+
+ const handleSignOut = () => {
+   signOut(auth).then(() => {
+     router.push('/')
+   })
+ }
+// sidebar: false
 </script>

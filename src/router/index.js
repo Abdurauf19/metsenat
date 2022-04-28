@@ -10,7 +10,9 @@ import talabalar from '../views/Talabalar.vue'
 import AddStudent from '../views/add-student.vue'
 import EditStudent from '../views/edit-student.vue'
 import aboutStudent from '../views/about-student.vue'
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { async } from '@firebase/util'
+// import { fromJSON } from 'postcss'
 const routes = [
   {
     path: '/',
@@ -21,7 +23,8 @@ const routes = [
   {
     path: '/sign-in',
     name: 'signin',
-    meta: {layout: 'empty-layout'},
+    meta: {layout: 'empty-layout'} ,
+    meta: {requiresAuth: true},
     component: signIn
   },
   {
@@ -85,6 +88,28 @@ const router = createRouter({
   routes
 })
 
+// const getCurrentUser = () => {
+// return new Promise((resolve, reject) => {
+//   const removeListener = onAuthStateChanged(
+//     getAuth(),
+//     (user) => {
+//       removeListener();
+//       resolve(user);
+//     },
+//     reject
+//   )
+// })
+// }
+// router.beforeEach(async(to, next) => {
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//     if (await getCurrentUser()) {
+//       next();
+//     }else {
+//       alert("you don't have access!")
+//       next('/non-user');
+//     }
+//   }
+// });
 
 
 export default router

@@ -136,7 +136,12 @@ export default {
       ]
     }
   },
-
+  mounted() {
+      fetch('http://localhost:3000/Homiylar')
+    .then(res => res.json())
+    .then(data => this.data = data)
+    .catch(err => console.log(err.message))
+    }
  
 };
 
