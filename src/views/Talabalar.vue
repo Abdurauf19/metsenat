@@ -232,6 +232,15 @@ export default {
       ],
     };
   },
+  mounted() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => {
+        this.data = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+  },
 };
 </script>
 

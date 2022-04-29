@@ -46,9 +46,10 @@
         <!-- Recaptcha -->
         <vue-recaptcha
           class="bg-[#FAFAFA] w-[311px]"
-          sitekey="sitekey"
+          sitekey="6LdK_60fAAAAANAoxOJPehlKMUv_1rbfdXzWWk4Q"
         ></vue-recaptcha>
         <!-- Button -->
+        <!-- 6LdK_60fAAAAALOLhumlfe-gVdQEZx8xJsx2_RQJ secret key -->
         <button
           @click="register"
           type="Submit"

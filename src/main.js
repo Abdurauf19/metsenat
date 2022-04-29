@@ -7,14 +7,9 @@ import 'aos/dist/aos.css';
 import toast from 'vue-toastification'
 import "vue-toastification/dist/index.css"
 import './assets/style/style.scss'
+import i18n from "./plugins/i18n.js";
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA8ZiZ5YFD18QhHpCEX81pvT7y_AVLzGK4",
   authDomain: "vue-metsenat.firebaseapp.com",
@@ -32,6 +27,7 @@ const firebaseConfig = {
 
 createApp(App)
   // .use(VueI18n)
+  .use(i18n)
   .use(store)
   .use(router)
   .use(toast)

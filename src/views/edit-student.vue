@@ -154,8 +154,8 @@
         <!-- Btn -->
         <div class="mt-[28px] flex items-center justify-end">
           <span class="editbtn">
-            <router-link to="/Homiylar"
-              ><button type="Submit" class="editbtn text-[14px] text-[#FFF]">
+            
+              ><button @click="clickEditSponcer" type="button" class="editbtn text-[14px] text-[#FFF]">
                 <svg
                   width="20"
                   height="20"
@@ -185,7 +185,7 @@
                     stroke-linejoin="round"
                   /></svg
                 >Saqlash
-              </button></router-link
+              </button>
             >
           </span>
         </div>
@@ -348,6 +348,7 @@
 </template>
 //
 <script>
+
 export default {
   data() {
     return {
@@ -356,9 +357,11 @@ export default {
       // btn index
       btns: [
         {
+          id: 0,
           btn: "Jismoniy shaxs",
         },
         {
+          id: 1,
           btn: "Yuridik shaxs",
         },
       ],
@@ -370,7 +373,13 @@ export default {
       UserSum: "0",
       UserPay: "0",
       Usergroup: "",
+      currentSlug: undefined,
     };
+  },
+
+  mounted() {
+    this.currentSlug = this.$route.params.slug;
+    fetch
   },
 
   methods: {
@@ -379,6 +388,34 @@ export default {
     },
     ModalOff() {
       document.querySelector(".modal-edit").style.display = "none";
+    },
+
+    clickEditSponcer() {
+      const data = {
+      btnId:this.btns.id,
+      UserName:this.UserName,
+      UserNumber:this.UserNumber,
+      UserSelect:this.UserSelect,
+      UserSum:this.UserSum,
+      UserPay:this.UserPay,
+      Usergroup:this.Usergroup,
+      };
+
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+        this.$router.push('/Homiylar/')
     },
   },
 };

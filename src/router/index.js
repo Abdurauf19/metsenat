@@ -65,7 +65,7 @@ const routes = [
     component: AddStudent
   },
   {
-    path: '/edit-student',
+    path: '/Homiylar/:slug',
     name: 'edit-student',
     meta: {layout: 'studient-layout'},
     component: EditStudent

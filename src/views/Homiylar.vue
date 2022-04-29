@@ -89,7 +89,7 @@
           >
             {{ item.position }}
           </td>
-          <router-link to="/edit-student"
+          <router-link :to="`/Homiylar${item.slug}`"
             ><td>
               <svg
                 class="md:w-[17px] md:h-[17px]"
@@ -130,6 +130,7 @@ export default {
           summs1: "0",
           date: "15.01.2021",
           position: "Yangi",
+          slug: "/Abror",
         },
         {
           num: "2",
@@ -139,6 +140,7 @@ export default {
           summs1: "0",
           date: "02.02.2021",
           position: "Moderatsiyada",
+          slug: "/rustam",
         },
         {
           num: "3",
@@ -148,6 +150,7 @@ export default {
           summs1: "5 000 000 ",
           date: "20.04.2021",
           position: "Tasdiqlangan",
+          slug: "/Otabek",
         },
         {
           num: "4",
@@ -157,6 +160,7 @@ export default {
           summs1: " 7 000 000",
           date: "03.05.2021",
           position: "Bekor qilingan",
+          slug: "/Sanjar",
         },
         {
           num: "5",
@@ -166,6 +170,7 @@ export default {
           summs1: "0",
           date: "10.05.2021",
           position: "Moderatsiyada",
+          slug: "/Sohib",
         },
         {
           num: "6",
@@ -175,6 +180,7 @@ export default {
           summs1: "1 000 000 ",
           date: "17.06.2021",
           position: "Bekor qilingan",
+          slug: "/Aziz",
         },
         {
           num: "7",
@@ -184,6 +190,7 @@ export default {
           summs1: "0",
           date: "21.06.2021",
           position: "Yangi",
+          slug: "/Furqat",
         },
         {
           num: "8",
@@ -193,6 +200,7 @@ export default {
           summs1: "0",
           date: "25.02.2021",
           position: "Yangi",
+          slug: "/Abror",
         },
         {
           num: "9",
@@ -202,6 +210,7 @@ export default {
           summs1: "20 000 000",
           date: "15.01.2021",
           position: "Tasdiqlangan",
+          slug: "/Abror",
         },
         {
           num: "10",
@@ -211,14 +220,18 @@ export default {
           summs1: "0",
           date: "28.02.2021",
           position: "Moderatsiyada",
+          slug: "/Iqbol",
         },
       ],
     };
   },
   mounted() {
-    fetch("http://localhost:3000/Homiylar")
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((data) => (this.data = data))
+      .then((data) => {
+        // this.data = data;
+        console.log(data, "data");
+      })
       .catch((err) => console.log(err.message));
   },
 };
