@@ -1,26 +1,31 @@
-<template >
-
-   <nav class="mmd:mt-[41px] header-nav flex items-center justify-around">
+<template>
+  <nav class="mmd:mt-[41px] header-nav flex items-center justify-around">
     <a href="#" class="header-logo"
-      ><img  src="../assets/photos/Logo.png" alt="Logo" />
-      <img v-if="false" class="py-[20px]" src="../assets//photos/Logopro.png" alt="Logo pro"
+      ><img src="../assets/photos/Logo.png" alt="Logo" />
+      <img
+        v-if="false"
+        class="py-[20px]"
+        src="../assets//photos/Logopro.png"
+        alt="Logo pro"
     /></a>
     <ul
       v-if="true"
       class="flex mmd:hidden items-center gap-[40px] pt-[33px] pb-[33px]"
     >
       <li>
-        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">Asosiy</a>
+        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">{{
+          $t("nav.main")
+        }}</a>
       </li>
       <li>
-        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#"
-          >Grantlar</a
-        >
+        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">{{
+          $t("nav.grants")
+        }}</a>
       </li>
       <li>
-        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#"
-          >Soliq imtiyozlari</a
-        >
+        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">{{
+          $t("nav.benefits")
+        }}</a>
       </li>
       <li class="flex gap-x-[7px] cursor-pointer">
         <span
@@ -43,27 +48,36 @@
         <router-link
           class="text-[14px] text-[#28293D] leading-[26px]"
           to="/sign-in"
-          >Kirish
+          >{{ $t("nav.signin") }}
         </router-link>
       </li>
       <router-link
         to="/register"
         class="header-nav__btn text-[#3366FF] text-[14px] border-[2px] rounded-[8px] border-[#3366FF] pr-[32px] pl-[32px] pt-[8px] pb-[8px]"
-        >Ro‘yxatdan o’tish</router-link
+        >{{ $t("nav.register") }}</router-link
       >
+      <select
+        v-model="languages"
+        id=""
+        class="border-[#3366FF] text-[14px] text-[#3366FF] w-[70px] bg-[3366FF]"
+      >
+        <option value="uz">O'z</option>
+        <option value="rus">Rus</option>
+        <option value="en">En</option>
+      </select>
     </ul>
     <div
       @click="sidebar = !sidebar"
-      class="nav-hamburger hidden mmd:flex flex-col gap-[5px] cursor-pointer "
+      class="nav-hamburger hidden mmd:flex flex-col gap-[5px] cursor-pointer"
     >
       <div
-        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line1"
+        class="w-[30px] rounded-[6px] bg-[#3366FF] h-[3px] hamburger-line1"
       ></div>
       <div
-        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line2"
+        class="w-[30px] rounded-[6px] bg-[#3366FF] h-[3px] hamburger-line2"
       ></div>
       <div
-        class="w-[30px] rounded-[6px] bg-[#3366FF]  h-[3px] hamburger-line3"
+        class="w-[30px] rounded-[6px] bg-[#3366FF] h-[3px] hamburger-line3"
       ></div>
     </div>
     <!-- nav type 2 -->
@@ -119,28 +133,37 @@
       <a href="#" class=""><img src="../assets/photos/Logopro.png" alt="" /></a>
       <li>
         <router-link to="/non-user" class="text-[20px] text-[#FFF]"
-          >Asosiy</router-link
+          >{{ $t("nav.main")}}</router-link
         >
       </li>
       <li>
-        <a href="#" class="text-[20px] text-[#FFF]">Grantlar</a>
+        <a href="#" class="text-[20px] text-[#FFF]">{{ $t("nav.grants")}}</a>
       </li>
       <li>
-        <a href="#" class="text-[20px] text-[#FFF]">Soliq imtiyozlari</a>
+        <a href="#" class="text-[20px] text-[#FFF]">{{ $t("nav.benefits")}}</a>
       </li>
       <li>
         <router-link to="/sign-in" class="text-[20px] text-[#FFF]"
-          >Kirish</router-link
+          >{{$t('nav.signin')}}</router-link
         >
       </li>
       <li>
         <router-link to="/register" class="text-[20px] text-[#FFF]"
-          >Ro‘yxatdan o’tish</router-link
+          >{{$t('nav.register')}}</router-link
         >
       </li>
+      <li class="text-[20px] text-[#FFF]"><select
+        v-model="languages"
+        id=""
+        class="border-[#3366FF] rounded-[15px] text-[14px] text-[#3366FF] w-[70px] bg-[3366FF]"
+      >
+        <option value="uz">O'z</option>
+        <option value="rus">Rus</option>
+        <option value="en">En</option>
+      </select></li>
     </ul>
   </aside>
-  <router-view/>
+  <router-view />
 </template>
 
 <script>
@@ -149,7 +172,18 @@ export default {
     return {
       step: 1,
       sidebar: false,
+      languages: "",
     };
+  },
+
+  watch: {
+    languages(val) {
+      this.$i18n.locale = val;
+      localStorage.setItem("locale", val);
+    },
+  },
+  mounted() {
+    this.languages = "uz";
   },
 };
 </script>

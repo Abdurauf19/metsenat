@@ -9,18 +9,18 @@
       class="flex mmd:hidden items-center gap-[40px] pt-[33px] pb-[33px]"
     >
       <li>
-        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">Asosiy</a>
+        <a class="text-[14px] text-[#28293D] leading-[26px]" href="#">{{$t("nav.main")}}</a>
       </li>
       <li>
         <a class="text-[14px] text-[#28293D] leading-[26px]" href="#"
-          >Grantlar</a
+          >{{$t("nav.grants")}}</a
         >
       </li>
       <li>
         <a class="text-[14px] text-[#28293D] leading-[26px]" href="#"
-          >Soliq imtiyozlari</a
+          >{{$t("nav.Benefits")}}</a
         >
-      </li>
+      </li>  
       <li class="flex gap-x-[7px] cursor-pointer">
         <span
           ><svg
@@ -42,13 +42,13 @@
         <router-link
           class="text-[14px] text-[#28293D] leading-[26px]"
           to="/sign-in"
-          >Kirish
+          >{{$t("nav.signin")}}
         </router-link>
       </li>
       <router-link
         to="/register"
         class="header-nav__btn text-[#3366FF] text-[14px] border-[2px] rounded-[8px] border-[#3366FF] pr-[32px] pl-[32px] pt-[8px] pb-[8px]"
-        >Ro‘yxatdan o’tish</router-link
+        >{{$t("nav.register")}}</router-link
       >
     </ul>
     

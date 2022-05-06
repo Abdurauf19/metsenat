@@ -89,32 +89,32 @@
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[12px] text-[15px] text-[#1D1D1F]"
           >
-            {{ item.num }}
+            {{ item.id }}
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[12px] text-[15px] text-[#1D1D1F]"
           >
-            {{ item.name }}
+            {{ item.full_name }}
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[11px] text-[14px] text-[#1D1D1F]"
           >
-            {{ item.types }}
+            {{ item.type }}
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[11px] univer text-[14px] text-[#1D1D1F] w-[200px]"
           >
-            {{ item.Univer }}
+            {{ item.institute.name }}
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] text-[14px] 1100:text-[11px] text-[#1D1D1F]"
           >
-            {{ item.summs }} <span class="text-[#B1B1B8]">UZS</span>
+            {{ item.contract }} <span class="text-[#B1B1B8]">UZS</span>
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[11px] text-[14px] text-[#1D1D1F]"
           >
-            {{ item.allsums }}<span class="text-[#B1B1B8]">UZS</span>
+            {{ item.given }}<span class="text-[#B1B1B8]">UZS</span>
           </td>
           <router-link to="/about-student"
             ><td>
@@ -147,96 +147,16 @@
 export default {
   data() {
     return {
-      data: [
-        {
-          num: "1",
-          name: "Alimov Abror Xabibullayevich",
-          types: "Bakalavr",
-          Univer: "Toshkent shahridagi INHA Universiteti",
-          summs: "14 000 000",
-          allsums: "30 000 000",
-        },
-        {
-          num: "2",
-          name: "Saimov Rustam Saimjonovich",
-          types: "Magistr",
-          Univer: "O’zbekiston milliy universiteti",
-          summs: "28 000 000 ",
-          allsums: "28 000 000",
-        },
-
-        {
-          num: "3",
-          name: "Sanginov Otabek Muratovich",
-          types: "Magistr",
-          Univer: "Toshkent davlat texnika universiteti",
-          summs: "0",
-          allsums: "24 000 000",
-        },
-        {
-          num: "4",
-          name: "Nazarov Sanjar Olimovich",
-          types: "Bakalavr",
-          Univer: "Toshkent davlat iqtisodiyot universiteti",
-          summs: "20 000 000 ",
-          allsums: "20 500 000",
-        },
-        {
-          num: "5",
-          name: "Ishmuhammedov Aziz Ishqobilovich",
-          types: "Bakalavr",
-          Univer: "O’zbekiston davlat jahon tillari universiteti",
-          summs: "0",
-          allsums: "25 000 000 ",
-        },
-        {
-          num: "6",
-          name: "Qosimov Furqat Xabibullayevich",
-          types: "Magistr",
-          Univer: "Toshkent davlat sharqshunoslik instituti",
-          summs: "1 000 000",
-          allsums: "10 000 000 ",
-        },
-        {
-          num: "7",
-          name: "Ortiqov Abror Bahodirovich",
-          types: "Bakalavr",
-          Univer: "Toshkent arxitektura-qurilish instituti",
-          summs: "4 000 000",
-          allsums: "18 000 000 ",
-        },
-        {
-          num: "8",
-          name: "Rustamov Oybek  Tajiddinovich",
-          types: "Magistr",
-          Univer: "Toshkent to’qimachilik va нngil sanoat istituti",
-          summs: "0",
-          allsums: "21 000 000",
-        },
-        {
-          num: "9",
-          name: "Isfandiyorov  Iqbol Bobomirzayevich",
-          types: "Bakalavr",
-          Univer: "Toshkent avtomobil-yo’llari instituti",
-          summs: "14 000 000",
-          allsums: "22 000 000",
-        },
-        {
-          num: "10",
-          name: "Ibragimov Sohib Mirfayozovich",
-          types: "Bakalavr",
-          Univer: "Toshkent moliya instituti",
-          summs: "7 000 000",
-          allsums: "22 000 000 ",
-        },
-      ],
+     data:[],
     };
   },
   mounted() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://metsenatclub.xn--h28h.uz/api/v1/student-list/", {
+      method: 'GET'
+    })
       .then((res) => res.json())
       .then((data) => {
-        this.data = data;
+        this.data = data.results;
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));

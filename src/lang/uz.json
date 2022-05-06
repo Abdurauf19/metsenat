@@ -1,3 +1,33 @@
 {
-  "": ""
+  "nav": {
+    "main": "Asosiy",
+    "grants":"Grantlar",
+    "benefits": "Soliq imtiyozlari",
+    "signin": "Kirish",
+    "register": "Ro'yxatdan o'tish"
+  },
+  "nonUser": {
+    "title": "Homiy sifatida ariza topshirish",
+    "btn" : "Jismoniy shaxs",
+    "btn1" : "Yuridik shaxs"
+  },
+  "userForm": {
+    "formName": "F.I.SH. (FAMILIYA ISM SHARIFINGIZ)",
+    "formNumber": "TELEFON RAQAMINGIZ",
+    "formSum": "TO'LOV SUMMASI",
+    "formAnotherSum": "BOSHQA",
+    "formOrganization": "TASHKILOT NOMI",
+    "formSend": "YUBORISH"
+  },
+  "formSEND": {
+    "title": "Ma'lumotlar tekshirish uchun yuborildi.",
+    "text": "Tez orada siz bilan operatorimiz bog'lanib, barcha ma'lumotlarni aniqlashtiradi."
+  },
+
+  "content": {
+    "title": "Yuqori sinflarda bolalar shaxs b'lib, jamoa bo'lib shakllanadi. Ayni o'sha paytda ularni o'zlari o'rgangan muhitdan ajratib qo'ymaslik kerak.",
+    "name": "Shavkat Mirziyoyev",
+    "job": "O'zbekiston Respublikasi Prezidenti"
+  }
+
 }

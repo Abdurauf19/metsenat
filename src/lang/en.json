@@ -1,3 +1,32 @@
 {
-  "": ""
+  "nav": {
+    "main": "Main",
+    "grants":"Grants",
+    "benefits": "Tax benefits",
+    "signin": "Sign in",
+    "register": "Registeration"
+  },
+  "nonUser": {
+    "title": "Apply as a sponsor",
+    "btn" : "Legal entity",
+    "btn1" : "Legal entity"
+  },
+  "userForm": {
+    "formName": "Surname",
+    "formNumber": "Number",
+    "formSum": "Payment",
+    "formAnotherSum": "OTHER",
+    "formOrganization": "NAME OF THE ORGANIZATION",
+    "formSend": "SEND"  
+  },
+  "formSEND": {
+    "title": "Thank you for your application",
+    "text": " We will contact you as soon as possible"
+  },
+  "content": {
+    "title": "In the upper grades, children are formed as individuals and as a team. At the same time, they should not be separated from the environment in which they learn.",
+    "name": "Shavkat Mirziyoyev",
+    "job": "President of the Republic of Uzbekistan"
+  }
+
 }

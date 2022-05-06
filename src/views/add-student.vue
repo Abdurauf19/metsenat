@@ -124,7 +124,7 @@
       <div class="flex items-center justify-end">
         <button
           @click="addUser"
-          type="Submit"
+          type="button"
           class="add-btn bg-[#3366FF] gap-[14px] text-[#FFFFFF] text-[14px]"
         >
           <svg
@@ -170,14 +170,26 @@ export default {
 
   methods: {
     addUser() {
-      const user = {
+      const data = {
         name: this.userName,
         number: this.userNumber,
         unv: this.userUnv,
         typeStudy: this.usertypeStudy,
         sum: this.userSum,
       };
-      this.$store.dispatch("addUser", user);
+
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        Headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Succes:", data);
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
       this.$router.push("/Talabalar");
     },
   },

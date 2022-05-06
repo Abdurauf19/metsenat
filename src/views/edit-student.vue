@@ -89,10 +89,10 @@
             id="UserSelect"
             required
           >
-            <option value="0">Tasdiqlangan</option>
-            <option value="1">Yangi</option>
-            <option value="2">Moderatsiyada</option>
-            <option value="3">Bekor qilingan</option>
+            <option value="Tasdiqlangan">Tasdiqlangan</option>
+            <option value="Yangi">Yangi</option>
+            <option value="Moderatsiyada">Moderatsiyada</option>
+            <option value="Bekor qilingan">Bekor qilingan</option>
           </select>
         </div>
         <!-- UserSum -->
@@ -108,10 +108,10 @@
             id="UserSum"
             required
           >
-            <option value="0">30 000 000 UZS</option>
-            <option value="1">20 000 000 UZS</option>
-            <option value="2">10 000 000 UZS</option>
-            <option value="3">1 000 000 UZS</option>
+            <option value="30 000 000 UZS">30 000 000 UZS</option>
+            <option value="20 000 000 UZS">20 000 000 UZS</option>
+            <option value="10 000 000 UZS">10 000 000 UZS</option>
+            <option value=" 1 000 000 UZS">1 000 000 UZS</option>
           </select>
         </div>
         <!-- UserPay -->
@@ -127,9 +127,9 @@
             id="UserPay"
             required
           >
-            <option value="0">Pul o‘tkazmalari</option>
-            <option value="1">Naxt</option>
-            <option value="2">Viza</option>
+            <option value="Pul o'tkazmalari">Pul o‘tkazmalari</option>
+            <option value="Naxt">Naxt</option>
+            <option value="Viza">Viza</option>
           </select>
         </div>
         <!-- User group -->
@@ -154,39 +154,42 @@
         <!-- Btn -->
         <div class="mt-[28px] flex items-center justify-end">
           <span class="editbtn">
-            
-              ><button @click="clickEditSponcer" type="button" class="editbtn text-[14px] text-[#FFF]">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M15 19V11H5V19"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M5 1V6H13"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  /></svg
-                >Saqlash
-              </button>
+            ><button
+              @click="clickEditSponcer"
+              type="button"
+              class="editbtn text-[14px] text-[#FFF]"
             >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15 19V11H5V19"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5 1V6H13"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+              > Saqlash
+            </button>
+            
           </span>
         </div>
       </form>
@@ -348,7 +351,6 @@
 </template>
 //
 <script>
-
 export default {
   data() {
     return {
@@ -369,17 +371,17 @@ export default {
       // Form
       UserName: "Ishmuhammedov Aziz Ishqobilovich",
       UserNumber: "+998 99 973-72-60",
-      UserSelect: "0",
-      UserSum: "0",
-      UserPay: "0",
-      Usergroup: "",
+      UserSelect: '',
+      UserSum: '',
+      UserPay: '',
+      Usergroup: '',
       currentSlug: undefined,
     };
   },
 
   mounted() {
     this.currentSlug = this.$route.params.slug;
-    fetch
+    fetch;
   },
 
   methods: {
@@ -392,13 +394,13 @@ export default {
 
     clickEditSponcer() {
       const data = {
-      btnId:this.btns.id,
-      UserName:this.UserName,
-      UserNumber:this.UserNumber,
-      UserSelect:this.UserSelect,
-      UserSum:this.UserSum,
-      UserPay:this.UserPay,
-      Usergroup:this.Usergroup,
+        btnId: this.btns.id,
+        UserName: this.UserName,
+        UserNumber: this.UserNumber,
+        UserSelect: this.UserSelect,
+        UserSum: this.UserSum,
+        UserPay: this.UserPay,
+        Usergroup: this.Usergroup,
       };
 
       fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -415,7 +417,7 @@ export default {
         .catch((error) => {
           console.error("Error:", error);
         });
-        this.$router.push('/Homiylar/')
+      this.$router.push("/Homiylar/");
     },
   },
 };

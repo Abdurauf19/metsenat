@@ -9,7 +9,7 @@
         <h2
           class="xs:text-[29px] text-[40px] text-[#1D1D1F] leading-[56px] font-bold pb-[40px]"
         >
-          Homiy sifatida ariza topshirish
+          {{ $t("nonUser.title") }}
         </h2>
         <div class="flex">
           <div
@@ -23,7 +23,13 @@
               @click="btnIndex = i"
               class="xss:py-[11px] xss:text-[11px] xss:px-[58px] py-[14px] text-center px-[98px] font-medium text-[12px] leading-[12px] text-[#3366FF99]"
             >
-              {{ item.text }}
+              {{
+                i == 0
+                  ? $t("nonUser.btn")
+                  : i == 1
+                  ? $t("nonUser.btn1")
+                  : item.text
+              }}
             </a>
           </div>
         </div>
@@ -33,7 +39,7 @@
             <label
               class="text-[14px] xss:text-[12px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
               for="name"
-              >F.I.Sh. (Familiya Ism Sharifingiz)</label
+              >{{ $t("userForm.formName") }}</label
             >
             <input
               class="bg-[#E0E7FF33] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
@@ -49,7 +55,7 @@
             <label
               class="text-[14px] xss:text-[12px] text-[#1D1D1F] leading-[14px] font-medium uppercase pb-[8px]"
               for="number"
-              >Telefon raqamingiz</label
+              >{{ $t("userForm.formNumber") }}</label
             >
             <input
               class="mb-[28px] bg-[#E0E7FF33] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[15px] text-[#2E384D59] leading-[18px] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF33] rounded-[6px]"
@@ -63,7 +69,7 @@
 
           <label
             class="text-[14px] xss:text-[12px] text-[#1D1D1F] font-medium uppercase"
-            >To'lov summasi</label
+            >{{ $t("userForm.formSum") }}</label
           >
           <div
             class="grid grid-cols-3 xll:grid-cols-2 lg:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]"
@@ -80,7 +86,9 @@
                   <p
                     class="text-[#2E384D] text-[15px] leading-[21px] uppercase"
                   >
-                    {{ item.title }}
+                    {{
+                      index == 5 ? $t("userForm.formAnotherSum") : item.title
+                    }}
                   </p>
                   <p class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase">
                     {{ item.text }}
@@ -102,7 +110,7 @@
             <label
               class="xss:text-[12px]text-[14px] text-[#1D1D1F] font-medium uppercase"
               for="tashkilot"
-              >Tashkilot nomi</label
+              >{{ $t("userForm.formOrganization") }}</label
             >
             <input
               v-model="userCompany"
@@ -113,12 +121,12 @@
             />
           </div>
           <button
-            @click="step = 2"
+            @click="sponsorCreate"
             type="Submit"
             aria-required="form"
             class="bg-[#2E5BFF] mt-[28px] rounded-[6px] text-[#FFFFFF] text-[15px] py-[14px] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px]"
           >
-            Yuborish
+            {{ $t("userForm.formSend") }}
           </button>
         </div>
       </form>
@@ -175,9 +183,7 @@
           <h2
             class="sh-text xss:w-[325px] smm:w-[386px] smm:text-[18px] xl:w-[430px] w-[490px] z-10 text-justify font-medium relative text-[20px] leading-[30px] text-[#28293D]"
           >
-            Yuqori sinflarda bolalar shaxs b'lib, jamoa bo'lib shakllanadi. Ayni
-            o'sha paytda ularni o'zlari o'rgangan muhitdan ajratib qo'ymaslik
-            kerak.
+            {{ $t("content.title") }}
           </h2>
           <svg
             class="svg-vv absolute translate-x-[450px] translate-y-[-53px]"
@@ -201,8 +207,8 @@
             alt="Mirziyoyev"
           />
           <div class="">
-            <h3>Shavkat Mirziyoyev</h3>
-            <p>O'zbekiston Respublikasi Prezidenti</p>
+            <h3>{{ $t("content.name") }}</h3>
+            <p>{{ $t("content.job") }}</p>
           </div>
         </div>
       </div>
@@ -259,6 +265,32 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    sponsorCreate() {
+      const data = {
+        full_name: this.userName,
+        phone: this.userNumber,
+        sum: this.sum,
+        firm: this.userCompany
+      };
+
+      fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      this.step = 2;
+    },
   },
 };
 </script>
