@@ -39,7 +39,7 @@
             v-for="(item, i) in btns"
             :key="i"
             :class="{ btnActive: btnIndexx === i }"
-            @click="btnIndexx = i"
+            @click="btns"
           >
             <a href="#" class="py-[9px]">{{ item.btn }}</a>
           </div>
@@ -108,10 +108,7 @@
             id="UserSum"
             required
           >
-            <option value="30 000 000 UZS">30 000 000 UZS</option>
-            <option value="20 000 000 UZS">20 000 000 UZS</option>
-            <option value="10 000 000 UZS">10 000 000 UZS</option>
-            <option value=" 1 000 000 UZS">1 000 000 UZS</option>
+            <option :value="30000000">{{ this.data.sum }} UZS</option>
           </select>
         </div>
         <!-- UserPay -->
@@ -154,8 +151,8 @@
         <!-- Btn -->
         <div class="mt-[28px] flex items-center justify-end">
           <span class="editbtn">
-            ><button
-              @click="clickEditSponcer"
+            <button
+              @click="editSponsorPatch"
               type="button"
               class="editbtn text-[14px] text-[#FFF]"
             >
@@ -186,10 +183,10 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                /></svg
-              > Saqlash
+                />
+              </svg>
+              Saqlash
             </button>
-            
           </span>
         </div>
       </form>
@@ -226,7 +223,7 @@
       <h3
         class="ml-[21px] py-[26px] sm:text-[20px] text-[24px] text-[#28293D] font-medium"
       >
-        Ishmuhammedov Aziz Ishqobilovich
+        {{ data.full_name }}
       </h3>
       <p
         class="text-[#00CF83] bg-[#DDFFF2] text-[12px] rounded-[5px] py-[6px] px-[12px] ml-[12px]"
@@ -311,7 +308,7 @@
           <h3
             class="smm:text-[13px] text-[16px] text-[#212121] w-[163px] font-medium"
           >
-            Ishmuhammedov Aziz Ishqobilovich
+            {{ data.full_name }}
           </h3>
         </div>
         <div class="pt-[24px] flex xss:gap-[130px] xs:gap-[87px] gap-[227px]">
@@ -322,9 +319,9 @@
               telefon raqam
             </p>
             <h3
-              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]"
+              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px] font-medium"
             >
-              +998 99 973-72-60
+              {{ data.phone }}
             </h3>
           </span>
           <span>
@@ -334,9 +331,9 @@
               Homiylik summasi
             </p>
             <h3
-              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px]"
+              class="smm:text-[13px] text-[16px] text-[#212121] leading-[14px] font-medium"
             >
-              30 000 000 UZS
+              {{ data.sum }} UZS
             </h3>
           </span>
         </div>
@@ -354,6 +351,7 @@
 export default {
   data() {
     return {
+      data: [],
       // Modal
 
       // btn index
@@ -369,22 +367,76 @@ export default {
       ],
       btnIndexx: 0,
       // Form
-      UserName: "Ishmuhammedov Aziz Ishqobilovich",
-      UserNumber: "+998 99 973-72-60",
-      UserSelect: '',
-      UserSum: '',
-      UserPay: '',
-      Usergroup: '',
+      UserName: "",
+      UserNumber: "",
+      UserSelect: 0,
+      UserSum: 0,
+      UserPay: 0,
+      Usergroup: "",
       currentSlug: undefined,
     };
   },
 
   mounted() {
     this.currentSlug = this.$route.params.slug;
-    fetch;
+    fetch(
+      `https://club.metsenat.uz/api/v1/sponsor-detail/${this.currentSlug}`,
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+
+      .then((data) => {
+        this.data = data;
+        console.log(data, "data");
+        this.UserName = this.data.full_name;
+        this.UserNumber = this.data.phone;
+        this.UserSum = this.data.sum;
+        this.UserSelect = this.data.get_status_display;
+        this.Usergroup = this.data.firm;
+      })
+      .catch((err) => console.log(err.message));
   },
 
   methods: {
+    editSponsorPatch() {
+      const data = {
+        full_name: this.UserName,
+        phone: this.UserNumber,
+        sum: this.UserSum,
+        firm: this.Usergroup,
+        is_legal: this.btnIndexx,
+        Comment: this.UserSelect,
+      };
+      fetch(
+        `https://metsenatclub.xn--h28h.uz/api/v1/sponsor-update/${this.currentSlug}/`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          this.$router.push("/Homiylar");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
+
+    btns() {
+      if (this.btnIndexx == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
     ModalOn() {
       document.querySelector(".modal-edit").style.display = "flex";
     },

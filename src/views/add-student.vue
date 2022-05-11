@@ -56,13 +56,18 @@
             for="num"
             >Telefon raqam</label
           >
-          <input
-            v-model="userNumber"
+          <div
             class="xxs:w-[337px] sm:w-[214px] xss:py-[9px] xss:w-[177px] md:w-[231px] mmd:w-[311px] bg-[#E0E7FF33] w-[353px] py-[12px] pl-[16px] border-[1px] rounded-[5px] border-[#E0E7FF]"
-            id="num"
-            type="text"
-            placeholder="+998 00 000-00-00"
-          />
+          >
+            <span>+998</span>
+            <input
+              v-model="userNumber"
+              class="border-0 outline-0 ml-[10px]"
+              id="num"
+              type="number"
+              placeholder=" 00 000-00-00"
+            />
+          </div>
         </div>
       </div>
       <!-- User unversitet -->
@@ -78,12 +83,9 @@
           name="OTM ni tanlang"
           id="OTM"
         >
-          <option value="0">OTM ni tanlang</option>
-          <hr />
-          <option value="1">OTM ni tanlang</option>
-          <hr />
-          <option value="2">OTM ni tanlang</option>
-          <hr />
+          <option class="w-[200px] h-[200px] flex items-center justify-center" v-for="(item, index) in data" :value="item.id" :key="index">
+            {{ item.name }}
+          </option>
         </select>
       </div>
       <div class="flex xxs:flex-col gap-[28px] pb-[28px]">
@@ -165,32 +167,63 @@ export default {
       userUnv: "",
       usertypeStudy: "",
       userSum: "",
+      data: [],
     };
   },
-
+  mounted() {
+    fetch("https://metsenatclub.xn--h28h.uz/api/v1/institute-list/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.data = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+  },
   methods: {
-    addUser() {
+    async addUser() {
       const data = {
-        name: this.userName,
-        number: this.userNumber,
-        unv: this.userUnv,
-        typeStudy: this.usertypeStudy,
-        sum: this.userSum,
+        full_name: this.userName,
+        phone: String(this.userNumber),
+        institute: this.userUnv,
+        type: Number(this.usertypeStudy),
+        contract: this.userSum,
       };
 
-      fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        Headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Succes:", data);
-        })
-        .catch((error) => {
-          console.log("Error:", error);
-        });
-      this.$router.push("/Talabalar");
+      try {
+        const response = await fetch(
+          "https://club.metsenat.uz/api/v1/student-create/",
+          {
+            method: "POST", // или 'PUT'
+            body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const json = await response.json();
+        console.log("Успех:", JSON.stringify(json));
+
+        this.$router.push("/Talabalar");
+      } catch (error) {
+        console.error("Ошибка:", error);
+      }
+
+      // fetch("https://club.metsenat.uz/api/v1/student-create/", {
+      //   method: "POST",
+      //   Headers: {
+      //     "Content-Type": "application/json",
+      //     Accept: "application/json",
+      //   },
+      //   body: JSON.stringify(data),
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log("Succes:", data);
+      //     this.$router.push("/Talabalar");
+      //   })
+      //   .catch((error) => {
+      //     console.log("Error:", error);
+      //   });
     },
   },
 };

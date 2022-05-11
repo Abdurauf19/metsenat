@@ -148,10 +148,35 @@ export default {
   data() {
     return {
      data:[],
+      // data: [
+      //   {
+      //     id: "1",
+      //     full_name: "Alimov Abror Xabibullayevich",
+      //     type: "Bakalavr",
+      //     institute: "Toshkent shahridagi INHA Universiteti",
+      //     contract: "14 000 000",
+      //     given: "30 000 000",
+      //   },
+      //   {
+      //     id: "2",
+      //     full_name: "Saimov Rustam Saimjonovich",
+      //     type: "Magistr",
+      //     institute: "O’zbekiston milliy universiteti",
+      //     contract: "28 000 000 ",
+      //     given: "28 000 000",
+      //   },
+      //   {
+      //     id: "3",
+      //     full_name: "Sanginov Otabek Muratovich",
+      //     type: "Magistr",
+      //     institute: "Toshkent davlat texnika universiteti",
+      //     contract: "0",
+      //     given: "24 000 000",
+      //   },]
     };
   },
   mounted() {
-    fetch("https://metsenatclub.xn--h28h.uz/api/v1/student-list/", {
+    fetch("https://club.metsenat.uz/api/v1/student-list/", {
       method: 'GET'
     })
       .then((res) => res.json())

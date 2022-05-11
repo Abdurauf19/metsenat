@@ -44,52 +44,52 @@
             Amallar
           </th>
         </tr>
+        
         <template v-if="data.length">
+         
           <tr
-            data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="800"
+            
             v-for="(item, i) in data"
             :key="i"
             class="border-[1px] border-[#2E5BFF14] cursor-pointer"
           >
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
               {{ item.id }}
             </td>
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
               {{ item.full_name }}
             </td>
+            
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
-              {{ item.number }}
+              {{ item.phone }}
             </td>
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
               {{ item.sum }} <span class="text-[#B1B1B8]">UZS</span>
             </td>
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
               {{ item.spent }} <span class="text-[#B1B1B8]">UZS</span>
             </td>
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
-              {{ item.created_at }}
+              {{getDate(item.created_at)}}
             </td>
             <td
-              class="xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
+              class=" xs:text-[6px] smm:text-[7px] md:text-[8px] mmd:text-[10px] xl:text-[12px] text-[15px] text-[#1D1D1F]"
             >
               {{ item.get_status_display }}
             </td>
-            <router-link :to="`/Homiylar${item.slug}`"
+            <router-link :to="`/Homiylar/${item.id}`"
               ><td>
                 <svg
                   class="md:w-[17px] md:h-[17px]"
@@ -123,10 +123,16 @@ export default {
   data() {
     return {
       data: [],
+      
     };
   },
+  methods: {
+    getDate (date) {
+      return date.slice(0, 10)
+    }
+  },
   mounted() {
-    fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-list",{
+    fetch("https://club.metsenat.uz/api/v1/sponsor-list",{
       method: 'GET'
     })
       .then((res) => res.json())
@@ -185,3 +191,12 @@ th {
   }
 }
 </style>
+
+
+ //data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="800"
+
+          //
+            // 

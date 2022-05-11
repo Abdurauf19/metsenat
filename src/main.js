@@ -8,6 +8,8 @@ import toast from 'vue-toastification'
 import "vue-toastification/dist/index.css"
 import './assets/style/style.scss'
 import i18n from "./plugins/i18n.js";
+import dayjs from "dayjs"; //import dayjs in your main.js
+
 
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
@@ -33,6 +35,9 @@ createApp(App)
   .use(toast)
   .mount('#app')
   AOS.init();
+  // app.config.globalProperties.$dayjs = dayjs;
+  //  app.provide("dayJS", dayjs);
+  
 
 
 // import VueI18n from 'vue-i18n'

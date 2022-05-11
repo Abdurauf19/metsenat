@@ -49,6 +49,9 @@
               required
               v-model="userName"
             />
+            <!-- <span v-if="v$.userName.$error">
+              {{v$.userName.$errors[0].$message}}
+            </span> -->
           </div>
 
           <div class="flex flex-col pt-[28px]">
@@ -102,7 +105,7 @@
                 class="xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
                 type="number"
                 placeholder="0"
-                v-model="userSum"
+                v-model="state.userSum"
               />
             </Transition>
           </div>
@@ -122,7 +125,7 @@
           </div>
           <button
             @click="sponsorCreate"
-            type="Submit"
+            type="Button"
             aria-required="form"
             class="bg-[#2E5BFF] mt-[28px] rounded-[6px] text-[#FFFFFF] text-[15px] py-[14px] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px]"
           >
@@ -218,18 +221,40 @@
 </template>
 
 <script>
+import useValidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
+import { reactive, computed } from "vue";
 export default {
-  data() {
-    return {
-      step: 1,
-      tab: true,
-      currentSum: "",
-      btnIndex: 0,
-      // Form value
+  setup() {
+    const state = reactive({
       userName: "",
       userNumber: "",
       userSum: "",
       userCompany: "",
+    });
+
+    const rules = computed(() => {
+      return {
+        userName: { required },
+        userNumber: { required },
+        userSum: { required },
+        userCompany: { required },
+      };
+    });
+
+    const v$ = useValidate(rules, state);
+    return {
+      state,
+      v$,
+    };
+  },
+  data() {
+    return {
+      v$: useValidate(),
+      step: 1,
+      tab: true,
+      currentSum: "",
+      btnIndex: 0,
 
       summs: [
         {
@@ -266,16 +291,17 @@ export default {
       ],
     };
   },
+
   methods: {
     sponsorCreate() {
       const data = {
         full_name: this.userName,
         phone: this.userNumber,
         sum: this.sum,
-        firm: this.userCompany
+        firm: this.userCompany,
       };
 
-      fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
+      fetch("https://jsonplaceholder.typicode.com/comments?postId=1", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
@@ -289,7 +315,13 @@ export default {
         .catch((error) => {
           console.error("Error:", error);
         });
-      this.step = 2;
+      console.log(this.v$);
+      if (!this.v$.$error) {
+        alert("Form succes validation");
+        this.step = 2;
+      } else {
+        alert("Form failed validation");
+      }
     },
   },
 };
