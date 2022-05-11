@@ -108,7 +108,7 @@
             id="UserSum"
             required
           >
-            <option :value="30000000">{{ this.data.sum }} UZS</option>
+            <option value="30000000 ">{{ this.data.sum }} UZS</option>
           </select>
         </div>
         <!-- UserPay -->
@@ -237,7 +237,7 @@
     <div class="flex items-center justify-center">
       <div class="homiy-cart mb-[163px]">
         <div class="flex items-center justify-between">
-          <h3 class="text-[24px] text-[#28293D] font-medium">Homiy haqida</h3>
+          <h3 class="text-[24px] text-[#28293D] font-medium">Homiy haqida</h3> 
           <span
             @click="ModalOn"
             class="flex items-center justify-center sm:w-[135px] w-[166px] rounded-[6px] bg-[#EDF1FD] gap-[17px] cursor-pointer"
@@ -378,7 +378,8 @@ export default {
   },
 
   mounted() {
-    this.currentSlug = this.$route.params.slug;
+   
+      this.currentSlug = this.$route.params.slug;
     fetch(
       `https://club.metsenat.uz/api/v1/sponsor-detail/${this.currentSlug}`,
       {
@@ -400,41 +401,38 @@ export default {
   },
 
   methods: {
-    editSponsorPatch() {
-      const data = {
-        full_name: this.UserName,
-        phone: this.UserNumber,
-        sum: this.UserSum,
-        firm: this.Usergroup,
-        is_legal: this.btnIndexx,
-        Comment: this.UserSelect,
-      };
-      fetch(
-        `https://metsenatclub.xn--h28h.uz/api/v1/sponsor-update/${this.currentSlug}/`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      )
+     editSponsorPatch () {
+       const data = {
+         full_name: this.UserName,
+         phone: this.UserNumber,
+         sum: this.UserSum,
+         firm: this.Usergroup,
+         is_legal: this.btnIndexx,
+         Comment: this.UserSelect
+       }
+        fetch(`https://club.metsenat.uz/api/v1/sponsor-update/${this.currentSlug}/`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
-          this.$router.push("/Homiylar");
+          this.$router.push('/Homiylar')
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     },
 
-    btns() {
-      if (this.btnIndexx == 0) {
-        return true;
-      } else {
-        return false;
-      }
+    btns(){
+      if(this.btnIndexx == 0) {
+        return true
+      }else {
+        return false
+      }       
     },
 
     ModalOn() {

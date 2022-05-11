@@ -116,7 +116,7 @@
           >
             {{ item.given }}<span class="text-[#B1B1B8]">UZS</span>
           </td>
-          <router-link to="/about-student"
+          <router-link :to="`/Talabalar/${item.id}`"
             ><td>
               <svg
                 class="md:w-[17px] md:h-[17px]"

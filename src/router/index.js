@@ -71,7 +71,7 @@ const routes = [
     component: EditStudent
   },
   {
-    path: '/about-student',
+    path: '/Talabalar/:slug',
     name: 'about-student',
     meta: {layout: 'studient-layout'},
     component: aboutStudent

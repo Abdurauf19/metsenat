@@ -27,7 +27,7 @@
             /></svg
         ></router-link>
         <h2 class="text-[24px] xxs:text-[12px]  sm:text-[15px] md:text-[18px] text-[#28293D] font-bold">
-          Isfandiyorov Iqbol Bobomirzayevich
+          {{data.full_name}}
         </h2>
       </span>
       <button
@@ -137,7 +137,7 @@
             </svg>
           </span>
           <h3 class="text-[16px] text-[#212121] w-[163px]">
-            Isfandiyorov Iqbol Bobomirzayevich
+            {{data.full_name}}
           </h3>
         </div>
         <!-- 4 Usernumber -->
@@ -152,12 +152,12 @@
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">OTM</p>
             <p class="text-[#212121] text-[16px] font-medium">
-              O’zbekiston davlat jahon tillari universiteti
+              {{data?.institute?.name}}
             </p>
           </div>
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">Talabalik turi</p>
-            <p class="text-[#212121] text-[16px] font-medium">Bakalavr</p>
+            <p class="text-[#212121] text-[16px] font-medium">{{data.type}}</p>
           </div>
         </div>
         <!-- sum and all sum -->
@@ -166,11 +166,11 @@
             <p class="uppercase text-[#B5B5C3] text-[12px]">
               Ajratilingan summa
             </p>
-            <p class="text-[#212121] text-[16px] font-medium">14 000 000 UZS</p>
+            <p class="text-[#212121] text-[16px] font-medium">{{data.given}} UZS</p>
           </div>
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">Kontrakt miqdori</p>
-            <p class="text-[#212121] text-[16px] font-medium">30 000 000 UZS</p>
+            <p class="text-[#212121] text-[16px] font-medium">{{data.contract}} UZS</p>
           </div>
         </div>
       </div>
@@ -227,10 +227,10 @@
             :key="i"
             class="border-[1px] border-[#FBFBFC] rounded-[8px] cursor-pointer"
           >
-            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{ i + 1 }}</td>
-            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{ item.name }}</td>
+            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{item.sponsors}}</td>
+            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{item.full_name}}</td>
             <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">
-              {{ item.sum }} <span>UZS</span>
+              {{ item }} <span>UZS</span>
             </td>
             <td @click="btnOn" >
               <svg
@@ -316,11 +316,8 @@
           <!-- UserSelect -->
           <div class="mb-[28px]">
            <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">OTM</label>
-            <select  v-model="UserSelect" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
-              <option value="0">O’zbekiston Davlat Jahon Tillari Universiteti</option>
-              <option value="1">O’zbekiston Davlat Jahon Tillari Universiteti</option>
-              <option value="2">O’zbekiston Davlat Jahon Tillari Universiteti</option>
-              <option value="3">O’zbekiston Davlat Jahon Tillari Universiteti</option>
+            <select v-model="UserSelect" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
+              <option v-for="(item , i) in instituteList" :key="i">{{item.name}}</option>
             </select>
           </div>
           <!-- User Sum -->
@@ -368,6 +365,7 @@
           </div>
       </div>
     </div>
+
 
   <!-- Add sponsor modal -->
   <div id="overlay" class="flex justify-center items-center bg-[#00000080]">
@@ -496,8 +494,7 @@
             v-model="UserName"
             class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
-            placeholder="Ishmuhammedov Aziz Ishqobilovich"
-      F    />
+            placeholder="Ishmuhammedov Aziz Ishqobilovich" />
         </div>
         <!-- userSum -->
         <div class="my-[28px]">
@@ -599,30 +596,12 @@
 
 <script>
 export default {
+   
   data() {
     return {
-      data: [
-        {
-          num: "1",
-          name: "Saimov Rustam Saimjonovich",
-          sum: "1 000 000",
-        },
-        {
-          num: "2",
-          name: "Sanginov Otabek Muratovich",
-          sum: "7 000 000 ",
-        },
-        {
-          num: "3",
-          name: "Nazarov Sanjar Olimovich",
-          sum: "10 000 000 ",
-        },
-        {
-          num: "4",
-          name: "Ishmuhammedov Aziz Ishqobilovich",
-          sum: "12 000 000 ",
-        },
-      ],
+      instituteList: [],
+      data: [],
+      datas:[],
       //  sponsor add
        options: [
         {
@@ -653,22 +632,65 @@ export default {
       UserNumber: '',
       UserName: '',
       UserSums: 'UZS',
-     
+      currentSlug: undefined,
     };
+  },
+
+  mounted() {
+    this.currentSlug = this.$route.params.slug
+
+     fetch(`https://club.metsenat.uz/api/v1/student-detail/${this.currentSlug}`, {
+      method: 'GET'
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.data = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+
+       fetch("https://metsenatclub.xn--h28h.uz/api/v1/institute-list/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.instituteList = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+
+      
   },
 
   methods: {
     addStudent() {
-      this.data.push({
-        name: this.options[this.UserName].text,
-        sum: this.UserSum,
-      });
+      const data = {
 
-      this.off();
+      }
+     fetch("https://club.metsenat.uz/api/v1/sponsor-create/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((datas) => {
+          console.log("Success:", datas);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },  
+    // addStudent() {
+    //   this.data.push({
+    //     name: this.options[this.UserName].text,
+    //     sum: this.UserSum,
+    //   });
 
-      this.UserName = 0;
-      this.UserSum = "";
-    },
+    //   this.off();
+
+    //   this.UserName = 0;
+    //   this.UserSum = "";
+    // },
     // ADD sponsor
     on() {
       document.getElementById("overlay").style.display = "flex";

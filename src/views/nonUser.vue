@@ -255,7 +255,6 @@ export default {
       tab: true,
       currentSum: "",
       btnIndex: 0,
-
       summs: [
         {
           title: "1 000 000",
@@ -299,9 +298,10 @@ export default {
         phone: this.userNumber,
         sum: this.sum,
         firm: this.userCompany,
+        payment_type: this.payment_type
       };
 
-      fetch("https://jsonplaceholder.typicode.com/comments?postId=1", {
+      fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
