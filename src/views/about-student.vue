@@ -2,7 +2,9 @@
   <div class="con bg-[#E5E5E5]">
     <!-- header -->
     <div class="bg-[#FFFFFF] flex items-center justify-between">
-      <span class="py-[30px] flex items-center mmd:pl-[20px] gap-[16px] pl-[120px]">
+      <span
+        class="py-[30px] flex items-center mmd:pl-[20px] gap-[16px] pl-[120px]"
+      >
         <router-link to="/Talabalar">
           <svg
             width="28"
@@ -26,15 +28,18 @@
               stroke-linejoin="round"
             /></svg
         ></router-link>
-        <h2 class="text-[24px] xxs:text-[12px]  sm:text-[15px] md:text-[18px] text-[#28293D] font-bold">
-          {{data.full_name}}
+        <h2
+          class="text-[24px] xxs:text-[12px] sm:text-[15px] md:text-[18px] text-[#28293D] font-bold"
+        >
+          {{ data.full_name }}
         </h2>
       </span>
       <button
         @click="on"
         class="mdd:mr-[40px] md:mr-[30px] xss:mr-[0px] mr-[126px] flex items-center justify-center gap-[14px] smm:text-[12px] smm:w-[137px] text-[14px] text-[#3365FC] py-[9px] bg-[#EDF1FD] w-[197px] rounded-[6px]"
       >
-        <svg class="smm:w-[15px] smm:h-[15px]"
+        <svg
+          class="smm:w-[15px] smm:h-[15px]"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -66,8 +71,9 @@
         <!-- 1 -->
         <div class="flex items-center justify-between">
           <h2 class="text-[24px] text-[#28293D] font-medium">Talaba haqida</h2>
-          <button @click="EditOn"
-            class="flex gap-[15px] text-[#3365FC] text-[14px] xxs:w-[130px] xxs:py-[11px]  py-[13px] w-[166px] bg-[#EDF1FD] rounded-[5px] items-center justify-center"
+          <button
+            @click="EditOn"
+            class="flex gap-[15px] text-[#3365FC] text-[14px] xxs:w-[130px] xxs:py-[11px] py-[13px] w-[166px] bg-[#EDF1FD] rounded-[5px] items-center justify-center"
           >
             <svg
               width="24"
@@ -137,7 +143,7 @@
             </svg>
           </span>
           <h3 class="text-[16px] text-[#212121] w-[163px]">
-            {{data.full_name}}
+            {{ data.full_name }}
           </h3>
         </div>
         <!-- 4 Usernumber -->
@@ -152,12 +158,14 @@
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">OTM</p>
             <p class="text-[#212121] text-[16px] font-medium">
-              {{data?.institute?.name}}
+              {{ data?.institute?.name }}
             </p>
           </div>
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">Talabalik turi</p>
-            <p class="text-[#212121] text-[16px] font-medium">{{data.type}}</p>
+            <p class="text-[#212121] text-[16px] font-medium">
+              {{ typeStudy[data.type] }}
+            </p>
           </div>
         </div>
         <!-- sum and all sum -->
@@ -166,16 +174,20 @@
             <p class="uppercase text-[#B5B5C3] text-[12px]">
               Ajratilingan summa
             </p>
-            <p class="text-[#212121] text-[16px] font-medium">{{data.given}} UZS</p>
+            <p class="text-[#212121] text-[16px] font-medium">
+              {{ data.given }} UZS
+            </p>
           </div>
           <div>
             <p class="uppercase text-[#B5B5C3] text-[12px]">Kontrakt miqdori</p>
-            <p class="text-[#212121] text-[16px] font-medium">{{data.contract}} UZS</p>
+            <p class="text-[#212121] text-[16px] font-medium">
+              {{ data.contract }} UZS
+            </p>
           </div>
         </div>
       </div>
       <!-- sponsor student -->
-      <div  class="sponsor-add">
+      <div class="sponsor-add">
         <!-- title -->
         <div class="flex justify-between items-center">
           <h3 class="">Talabaga homiylar</h3>
@@ -211,28 +223,49 @@
         <!-- table -->
         <table class="tables">
           <tr class="mb-[12px]">
-            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">#</th>
-            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th
+              class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+            >
+              #
+            </th>
+            <th
+              class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+            >
               f.i.sh.
             </th>
-            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th
+              class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+            >
               Ajratilingan summa
             </th>
-            <th class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium">
+            <th
+              class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
+            >
               Amallar
             </th>
           </tr>
           <tr
-            v-for="(item, i) in data"
+            v-for="(item, i) in sponsorData.sponsors"
             :key="i"
             class="border-[1px] border-[#FBFBFC] rounded-[8px] cursor-pointer"
           >
-            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{item.sponsors}}</td>
-            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">{{item.full_name}}</td>
-            <td class=" xs:text-[10px]  xss:text-[13px] text-[15px] text-[#1D1D1F]">
-              {{ item }} <span>UZS</span>
+            <td
+              class="xs:text-[10px] xss:text-[13px] text-[15px] text-[#1D1D1F]"
+            >
+              {{ item.id }}
             </td>
-            <td @click="btnOn" >
+            <td
+              class="xs:text-[10px] xss:text-[13px] text-[15px] text-[#1D1D1F]"
+            >
+              {{ item.sponsor.full_name }}
+            </td>
+            <td
+              class="xs:text-[10px] xss:text-[13px] text-[15px] text-[#1D1D1F]"
+            >
+              {{ item.summa }}
+              <span>UZS</span>
+            </td>
+            <td @click="btnOn">
               <svg
                 width="24"
                 height="24"
@@ -273,105 +306,155 @@
     </div>
   </div>
   <!-- edit student -->
-    <div class="edit-student flex items-center justify-center bg-[#00000080]">
-      <div class="xxs:w-[370px] xs:w-[420px] xss:w-[475px] smm:w-[532px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
+  <div class="edit-student flex items-center justify-center bg-[#00000080]">
+    <div
+      class="xxs:w-[370px] xs:w-[420px] xss:w-[475px] smm:w-[532px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
+    >
       <!-- Modal header -->
-        <div class="modal-header flex items-center justify-between mb-[28px]">
-          <h3 class="text-[24px] text-[#28293D] font-medium">Tahrirlash</h3>
+      <div class="modal-header flex items-center justify-between mb-[28px]">
+        <h3 class="text-[24px] text-[#28293D] font-medium">Tahrirlash</h3>
+        <svg
+          @click="EditOff"
+          class="cursor-pointer"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 7L7 21"
+            stroke="#B2B7C1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7 7L21 21"
+            stroke="#B2B7C1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <!-- Modal from or body -->
+      <div class="mb-[28px]">
+        <label
+          class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
+          for="UserName"
+          >F.I.Sh. (Familiya Ism Sharifingiz)</label
+        >
+        <input
+          v-model="UserName"
+          class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]"
+          type="text"
+          id="UserName"
+          placeholder="Ishmuhammedov Aziz Ishqobilovich"
+          required
+        />
+      </div>
+      <!-- UserNumber -->
+      <div class="mb-[28px]">
+        <label
+          class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
+          for="UserNumber"
+          >Telefon raqam</label
+        >
+        <input
+          v-model="UserNumber"
+          class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]"
+          type="text"
+          id="UserNumber"
+          placeholder="+998 88 973-72-60"
+          required
+        />
+      </div>
+      <!-- UserSelect -->
+      <div class="mb-[28px]">
+        <label
+          class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
+          for="UserSelect"
+          >OTM</label
+        >
+        <select
+          v-model="UserSelect"
+          class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]"
+          id="UserSelect"
+          required
+        >
+          <option
+            class="max-w-[50px]"
+            v-for="(item, i) in instituteList"
+            :key="i"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+      <!-- User Sum -->
+      <div class="mb-[28px]">
+        <label
+          class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
+          for="UserSums"
+          >Kontrakt miqdori</label
+        >
+        <input
+          v-model="UserSums"
+          class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]"
+          type="text"
+          id="UserSums"
+          placeholder="30 000 000 UZS"
+          required
+        />
+      </div>
+      <!-- User btn -->
+      <div class="flex justify-end items-center">
+        <button
+          @click="patchStudent"
+          class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
+        >
           <svg
-            @click="EditOff"
-            class="cursor-pointer"
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M21 7L7 21"
-              stroke="#B2B7C1"
+              d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
+              stroke="white"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
-              d="M7 7L21 21"
-              stroke="#B2B7C1"
+              d="M15 19V11H5V19"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M5 1V6H13"
+              stroke="white"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
           </svg>
-        </div>
-        <!-- Modal from or body -->
-        <div class="mb-[28px]">
-            <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserName">F.I.Sh. (Familiya Ism Sharifingiz)</label>
-            <input v-model="UserName" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserName" placeholder="Ishmuhammedov Aziz Ishqobilovich" required>
-          </div>
-          <!-- UserNumber -->
-          <div class="mb-[28px]">
-           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserNumber">Telefon raqam</label>
-            <input v-model="UserNumber" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserNumber" placeholder="+998 88 973-72-60" required>
-          </div>
-          <!-- UserSelect -->
-          <div class="mb-[28px]">
-           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSelect">OTM</label>
-            <select v-model="UserSelect" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" id="UserSelect" required>
-              <option v-for="(item , i) in instituteList" :key="i">{{item.name}}</option>
-            </select>
-          </div>
-          <!-- User Sum -->
-           <div class="mb-[28px]">
-           <label class=" xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium" for="UserSums">Kontrakt miqdori</label>
-            <input v-model="UserSums" class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px]  mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]" type="text" id="UserSums" placeholder="30 000 000 UZS" required>
-          </div>
-          <!-- User btn -->
-          <div class="flex justify-end items-center">
-          <button 
-            class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H14L19 6V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19Z"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15 19V11H5V19"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M5 1V6H13"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
 
-            Saqlash
-          </button>
-          </div>
+          Saqlash
+        </button>
       </div>
     </div>
-
+  </div>
 
   <!-- Add sponsor modal -->
   <div id="overlay" class="flex justify-center items-center bg-[#00000080]">
     <!-- Modal header -->
     <div
-      class="modal-sponser xxs:w-[370px] xs:w-[415px]  xss:w-[470px] smm:w-[530px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
+      class="modal-sponser xxs:w-[370px] xs:w-[415px] xss:w-[470px] smm:w-[530px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
     >
       <div class="modal-header flex items-center justify-between mb-[28px]">
         <h3 class="text-[24px] text-[#28293D] font-medium">Homiy qo‘shish</h3>
@@ -409,18 +492,15 @@
             for="Username"
             >F.I.Sh. (Familiya Ism Sharifingiz)</label
           >
+          {{userEditId}}
           <select
-            v-model="UserName"
-            class=" xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px] bg-[#E0E7FF33] outline-none mt-[8px] w-[530px] text-[15px] text-[#2E384D] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF] rounded-[6px]"
+            v-model="userEditId"
+            class="xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px] bg-[#E0E7FF33] outline-none mt-[8px] w-[530px] text-[15px] text-[#2E384D] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF] rounded-[6px]"
             name=""
             id="Username"
           >
-            <option
-              v-for="(item, index) in options"
-              :key="index"
-              :value="item.value"
-            >
-              {{ item.text }}
+            <option v-for="(item, index) in Sponsors" :key="index" :value="item.id">
+              {{ item.full_name }}
             </option>
           </select>
         </div>
@@ -432,7 +512,7 @@
           >
           <input
             v-model="UserSum"
-            class="modal-input xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px]  w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
+            class="modal-input xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px] w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             id="UserSum"
             type="number"
             placeholder="Summani kiriting"
@@ -441,7 +521,7 @@
         <hr />
         <div class="flex justify-end items-center mt-[28px]">
           <button
-            @click="addStudent()"
+            @click="addStudent"
             class="w-[155px] bg-[#3366FF] rounded-[6px] py-[9px] text-[#FFF] text-[14px] flex items-center justify-center gap-[14px]"
           >
             <svg
@@ -473,8 +553,10 @@
   </div>
 
   <!-- Edit sponsor modal -->
-  <div class="flex edit-sponsor  justify-center items-center bg-[#00000080]">
-    <div class="xxs:w-[370px] xs:w-[410px] xss:w-[470px] smm:w-[520px] sm:w-[560px]  px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]">
+  <div class="flex edit-sponsor justify-center items-center bg-[#00000080]">
+    <div
+      class="xxs:w-[370px] xs:w-[410px] xss:w-[470px] smm:w-[520px] sm:w-[560px] px-[28px] py-[28px] w-[586px] bg-[#FFFFFF] rounded-[6px]"
+    >
       <!-- Modal title -->
       <div>
         <h2 class="text-[24px] text-[#28293D] font-medium mb-[28px]">
@@ -494,7 +576,8 @@
             v-model="UserName"
             class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
-            placeholder="Ishmuhammedov Aziz Ishqobilovich" />
+            placeholder="Ishmuhammedov Aziz Ishqobilovich"
+          />
         </div>
         <!-- userSum -->
         <div class="my-[28px]">
@@ -511,7 +594,8 @@
         <hr />
         <!-- userBtns -->
         <div class="flex items-center justify-end mt-[28px] gap-[16px]">
-          <button @click="btnOff"
+          <button
+            @click="btnOff"
             class="flex items-center justify-center gap-[15px] w-[209px] bg-[#FFECEB] text-[#FF4945] text-[14px] py-[9px] rounded-[6px]"
           >
             <svg
@@ -553,7 +637,8 @@
 
             Homiyni o‘chirish
           </button>
-          <button @click="btnOff"
+          <button
+            @click="btnOff"
             class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
           >
             <svg
@@ -596,14 +681,16 @@
 
 <script>
 export default {
-   
   data() {
     return {
+      typeStudy: ["", "Bakalavr", "Magistr", "Phd"],
       instituteList: [],
       data: [],
-      datas:[],
+      datas: [],
+      Sponsors: [],
+      sponsorData: [],
       //  sponsor add
-       options: [
+      options: [
         {
           value: "0",
           text: "Homiyni tanlang",
@@ -628,44 +715,98 @@ export default {
       UserName: "0",
       UserSum: "",
       // Edit student
-      UserSelect: '0',
-      UserNumber: '',
-      UserName: '',
-      UserSums: 'UZS',
+      UserSelect: "",
+      UserNumber: "",
+      UserName: "",
+      UserSums: "UZS",
+      userEditId: '',
       currentSlug: undefined,
     };
   },
 
   mounted() {
-    this.currentSlug = this.$route.params.slug
-
-     fetch(`https://club.metsenat.uz/api/v1/student-detail/${this.currentSlug}`, {
-      method: 'GET'
-    })
+    this.currentSlug = this.$route.params.slug;
+    // student detail
+    fetch(
+      `https://club.metsenat.uz/api/v1/student-detail/${this.currentSlug}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         this.data = data;
-        console.log(data, "data");
+        this.UserName = this.data.full_name;
+        this.UserNumber = this.data.phone;
+        this.UserSelect = this.data.institute;
+        this.UserSums = this.data.contract;
       })
       .catch((err) => console.log(err.message));
-
-       fetch("https://metsenatclub.xn--h28h.uz/api/v1/institute-list/")
+    // Institute list
+    fetch("https://club.metsenat.uz/api/v1/institute-list/")
       .then((res) => res.json())
       .then((data) => {
         this.instituteList = data;
+        console.log("data");
+      })
+      .catch((err) => console.log(err.message));
+    // Sponsor List
+    fetch(
+      `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.sponsorData = data;
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
-
-      
+    // Sponsors
+    fetch("https://club.metsenat.uz/api/v1/sponsor-list", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.Sponsors = data.results;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
   },
 
   methods: {
+    patchStudent() {
+      const data = {
+        full_name: String(this.UserName),
+        phone: String(this.UserNumber),
+        institute: String(this.UserSelect),
+        contract: Number(this.UserSums),
+        type: Number(this.data.type),
+      };
+      fetch(
+        `https://club.metsenat.uz/api/v1/student-update/${this.currentSlug}/`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((response) => response.json())
+        .then((datas) => {
+          console.log("Success:", datas);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      this.$router.push("/Talabalar");
+    },
     addStudent() {
       const data = {
-
-      }
-     fetch("https://club.metsenat.uz/api/v1/sponsor-create/", {
+        sponsor: this.userEditId,
+        summa: String(this.UserSum),
+        student: String(this.currentSlug),
+      };
+      fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-create/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -675,23 +816,24 @@ export default {
         .then((response) => response.json())
         .then((datas) => {
           console.log("Success:", datas);
+          this.$router.go(0)
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-    },  
-    // addStudent() {
-    //   this.data.push({
-    //     name: this.options[this.UserName].text,
-    //     sum: this.UserSum,
-    //   });
 
-    //   this.off();
+        // GET
+         fetch(
+      `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.sponsorData = data;
+        
+      })
+      .catch((err) => console.log(err.message));
+    },
 
-    //   this.UserName = 0;
-    //   this.UserSum = "";
-    // },
-    // ADD sponsor
     on() {
       document.getElementById("overlay").style.display = "flex";
     },
@@ -732,73 +874,76 @@ export default {
     width: 690px;
   }
   .sponsor-add {
-      width: 690px;
-      td, th {
-    padding: 25px 21px;
-  }
+    width: 690px;
+    td,
+    th {
+      padding: 25px 21px;
     }
+  }
 }
 @media only screen and (max-width: 768px) {
   .about-student {
     width: 640px;
   }
   .sponsor-add {
-      width: 640px;
-      td, th {
-    padding: 25px 21px;
-  }
+    width: 640px;
+    td,
+    th {
+      padding: 25px 21px;
     }
-
-  
+  }
 }
 @media only screen and (max-width: 640px) {
   .about-student {
     width: 576px;
   }
   .sponsor-add {
-      width: 576px;
-      td, th {
-    padding: 25px 11px;
-  }
+    width: 576px;
+    td,
+    th {
+      padding: 25px 11px;
     }
+  }
 }
 @media only screen and (max-width: 576px) {
   .about-student {
     width: 532px;
   }
-   .sponsor-add {
-      width: 532px;
-      td, th {
-    padding: 25px 11px;
-  }
-
-  .edit-studentt {
+  .sponsor-add {
     width: 532px;
-  }
+    td,
+    th {
+      padding: 25px 11px;
     }
+
+    .edit-studentt {
+      width: 532px;
+    }
+  }
 }
 @media only screen and (max-width: 532px) {
   .about-student {
     width: 475px;
   }
-   .sponsor-add {
-      width: 475px;
-      td, th {
-    padding: 15px 11px;
-  }
+  .sponsor-add {
+    width: 475px;
+    td,
+    th {
+      padding: 15px 11px;
     }
+  }
 }
 @media only screen and (max-width: 475px) {
   .about-student {
     width: 420px;
   }
   .sponsor-add {
-      width: 420px;
-      td, th {
-    padding: 25px 11px;
-  }
+    width: 420px;
+    td,
+    th {
+      padding: 25px 11px;
     }
-  
+  }
 }
 @media only screen and (max-width: 420px) {
   .about-student {
@@ -806,11 +951,12 @@ export default {
     padding: 25px;
   }
   .sponsor-add {
-      width: 370px;
-      td, th {
-    padding: 25px 11px;
-  }
+    width: 370px;
+    td,
+    th {
+      padding: 25px 11px;
     }
+  }
 }
 
 td,

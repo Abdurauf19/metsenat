@@ -57,7 +57,7 @@
             >Telefon raqam</label
           >
           <div
-            class="xxs:w-[337px] sm:w-[214px] xss:py-[9px] xss:w-[177px] md:w-[231px] mmd:w-[311px] bg-[#E0E7FF33] w-[353px] py-[12px] pl-[16px] border-[1px] rounded-[5px] border-[#E0E7FF]"
+            class="flex xxs:w-[337px] sm:w-[214px] xss:py-[9px] xss:w-[177px] md:w-[231px] mmd:w-[311px] bg-[#E0E7FF33] w-[353px] py-[12px] pl-[16px] border-[1px] rounded-[5px] border-[#E0E7FF]"
           >
             <span>+998</span>
             <input
@@ -84,7 +84,7 @@
           id="OTM"
         >
           <option class="w-[200px] h-[200px] flex items-center justify-center" v-for="(item, index) in data" :value="item.id" :key="index">
-            {{ item.name }}
+            {{ item.name}}
           </option>
         </select>
       </div>
@@ -101,9 +101,9 @@
             id="barchasi"
             class="xxs:w-[337px] sm:w-[214px] xss:py-[9px] xss:w-[177px] md:w-[231px] mmd:w-[311px] rounded-[6px] bg-[#E0E7FF33] border-[1px] border-[#E0E7FF] text-[#2E384D] text-[15px] py-[12px] pl-[16px] w-[353px]"
           >
-            <option value="0">Barchasi</option>
-            <option value="1">Barchasi</option>
-            <option value="2">Barchasi</option>
+            <option value="1">Bakalavr</option>
+            <option value="2">Magistr</option>
+            <option value="3">Phd</option>
           </select>
         </div>
         <!-- paying sum -->
@@ -169,6 +169,7 @@ export default {
       usertypeStudy: "",
       userSum: "",
       data: [],
+      typeList: [],
     };
   },
   mounted() {
@@ -179,9 +180,17 @@ export default {
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
+
+    fetch("https://metsenatclub.xn--h28h.uz/api/v1/student-create/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.typeList = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
   },
   methods: {
-    async addUser() {
+    async addUser() {   
       const data = {
         full_name: this.userName,
         phone: String(this.userNumber),
@@ -194,8 +203,8 @@ export default {
         const response = await fetch(
           "https://club.metsenat.uz/api/v1/student-create/",
           {
-            method: "POST", // или 'PUT'
-            body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+            method: "POST", 
+            body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json",
             },

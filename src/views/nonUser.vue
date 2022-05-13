@@ -75,7 +75,7 @@
             >{{ $t("userForm.formSum") }}</label
           >
           <div
-            class="grid grid-cols-3 xll:grid-cols-2 lg:grid-cols-3 xss:grid-cols-2 gap-[16px] pt-[12px]"
+            class=" flex flex-wrap gap-[16px] pt-[12px]"
           >
             <label
               v-for="(item, index) in summs"
@@ -87,21 +87,22 @@
               <div class="click">
                 <span class="flex items-center justify-center py-[20px]">
                   <p
-                    class="text-[#2E384D] text-[15px] leading-[21px] uppercase"
                   >
                     {{
-                      index == 5 ? $t("userForm.formAnotherSum") : item.title
+                      index == 5 ? $t("userForm.formAnotherSum") : ''
                     }}
                   </p>
-                  <p class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase">
-                    {{ item.text }}
+                  <p class=" text-[#2E384D] text-[15px] leading-[21px] uppercase">
+                    {{item.summa}} <span  class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase ">UZS</span> 
                   </p>
+                  
                 </span>
+                
               </div>
             </label>
             <Transition>
               <input
-                v-if="currentSum === 5"
+                v-if="currentSum === 7"
                 class="xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
                 type="number"
                 placeholder="0"
@@ -255,31 +256,7 @@ export default {
       tab: true,
       currentSum: "",
       btnIndex: 0,
-      summs: [
-        {
-          title: "1 000 000",
-          text: "uzs",
-        },
-        {
-          title: "5 000 000",
-          text: "uzs",
-        },
-        {
-          title: "7 000 000",
-          text: "uzs",
-        },
-        {
-          title: "10 000 000",
-          text: "uzs",
-        },
-        {
-          title: "30 000 000",
-          text: "uzs",
-        },
-        {
-          title: "boshqa",
-        },
-      ],
+      summs: [],
       btns: [
         {
           text: "Jismoniy shaxs",
@@ -288,7 +265,19 @@ export default {
           text: "Yuridik shaxs",
         },
       ],
+     
     };
+  },
+
+  mounted() {
+    fetch("https://metsenatclub.xn--h28h.uz/api/v1/tariff-list/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.summs = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+
   },
 
   methods: {
@@ -302,7 +291,7 @@ export default {
       };
 
       fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
-        method: "POST", // or 'PUT'
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },

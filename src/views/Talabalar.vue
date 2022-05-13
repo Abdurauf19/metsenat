@@ -99,7 +99,7 @@
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[11px] text-[14px] text-[#1D1D1F]"
           >
-            {{ item.type }}
+            {{ typeStudy[item.type] }}
           </td>
           <td
             class="xs:text-[6px] xss:text-[7px] mdd:text-[9px] 1100:text-[11px] univer text-[14px] text-[#1D1D1F] w-[200px]"
@@ -147,37 +147,13 @@
 export default {
   data() {
     return {
-     data:[],
-      // data: [
-      //   {
-      //     id: "1",
-      //     full_name: "Alimov Abror Xabibullayevich",
-      //     type: "Bakalavr",
-      //     institute: "Toshkent shahridagi INHA Universiteti",
-      //     contract: "14 000 000",
-      //     given: "30 000 000",
-      //   },
-      //   {
-      //     id: "2",
-      //     full_name: "Saimov Rustam Saimjonovich",
-      //     type: "Magistr",
-      //     institute: "O’zbekiston milliy universiteti",
-      //     contract: "28 000 000 ",
-      //     given: "28 000 000",
-      //   },
-      //   {
-      //     id: "3",
-      //     full_name: "Sanginov Otabek Muratovich",
-      //     type: "Magistr",
-      //     institute: "Toshkent davlat texnika universiteti",
-      //     contract: "0",
-      //     given: "24 000 000",
-      //   },]
+      data: [],
+      typeStudy: ["", "Bakalavr", "Magistr", "Phd"],
     };
   },
   mounted() {
     fetch("https://club.metsenat.uz/api/v1/student-list/", {
-      method: 'GET'
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {

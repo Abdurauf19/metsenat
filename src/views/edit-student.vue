@@ -57,7 +57,7 @@
             type="text"
             id="UserName"
             placeholder="Ishmuhammedov Aziz Ishqobilovich"
-            requiredqqq
+            required
           />
         </div>
         <!-- UserNumber -->
@@ -124,9 +124,7 @@
             id="UserPay"
             required
           >
-            <option value="Pul o'tkazmalari">Pul o‘tkazmalari</option>
-            <option value="Naxt">Naxt</option>
-            <option value="Viza">Viza</option>
+            <option v-for="(item, i ) in typePayment" :key="i">{{item.title}}</option>
           </select>
         </div>
         <!-- User group -->
@@ -228,7 +226,7 @@
       <p
         class="text-[#00CF83] bg-[#DDFFF2] text-[12px] rounded-[5px] py-[6px] px-[12px] ml-[12px]"
       >
-        Tasdiqlangan
+        {{data.get_status_display}}
       </p>
     </div>
     <!--  -->
@@ -352,6 +350,7 @@ export default {
   data() {
     return {
       data: [],
+      typePayment:[],
       // Modal
 
       // btn index
@@ -380,6 +379,7 @@ export default {
   mounted() {
    
       this.currentSlug = this.$route.params.slug;
+
     fetch(
       `https://club.metsenat.uz/api/v1/sponsor-detail/${this.currentSlug}`,
       {
@@ -387,7 +387,6 @@ export default {
       }
     )
       .then((res) => res.json())
-
       .then((data) => {
         this.data = data;
         console.log(data, "data");
@@ -396,6 +395,20 @@ export default {
         this.UserSum = this.data.sum;
         this.UserSelect = this.data.get_status_display;
         this.Usergroup = this.data.firm;
+        this.UserSelect = this.data.get_status_display;
+      })
+      .catch((err) => console.log(err.message));
+
+    fetch(
+      `https://metsenatclub.xn--h28h.uz/api/v1/payment-type-list/`,
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.typePayment = data;
+        console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
   },
@@ -444,7 +457,6 @@ export default {
 
     clickEditSponcer() {
       const data = {
-        btnId: this.btns.id,
         UserName: this.UserName,
         UserNumber: this.UserNumber,
         UserSelect: this.UserSelect,

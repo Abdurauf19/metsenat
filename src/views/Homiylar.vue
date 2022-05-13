@@ -48,7 +48,10 @@
         <template v-if="data.length">
          
           <tr
-            
+            data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="800"
             v-for="(item, i) in data"
             :key="i"
             class="border-[1px] border-[#2E5BFF14] cursor-pointer"
@@ -193,10 +196,7 @@ th {
 </style>
 
 
- //data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
-            data-aos-duration="800"
+ //
 
           //
             // 
