@@ -217,7 +217,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            Homiy qo‘shish
+            Homiy qo‘shish 
           </button>
         </div>
         <!-- table -->
@@ -226,7 +226,7 @@
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
             >
-              #
+              # 
             </th>
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
@@ -241,13 +241,13 @@
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
             >
-              Amallar
+              Amallar 
             </th>
           </tr>
           <tr
             v-for="(item, i) in sponsorData.sponsors"
             :key="i"
-            class="border-[1px] border-[#FBFBFC] rounded-[8px] cursor-pointer"
+            class="border-[1px] border-[#FBFBFC] rounded-[8px] cursor-pointer pt-[20px]"
           >
             <td
               class="xs:text-[10px] xss:text-[13px] text-[15px] text-[#1D1D1F]"
@@ -265,7 +265,7 @@
               {{ item.summa }}
               <span>UZS</span>
             </td>
-            <td @click="btnOn">
+            <td @click="btnOn(item)">
               <svg
                 width="24"
                 height="24"
@@ -375,7 +375,7 @@
         <label
           class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
           for="UserSelect"
-          >OTM</label
+          >OTM </label
         >
         <select
           v-model="UserSelect"
@@ -383,8 +383,9 @@
           id="UserSelect"
           required
         >
-          <option
+          <option 
             class="max-w-[50px]"
+            :value="item.id"
             v-for="(item, i) in instituteList"
             :key="i"
           >
@@ -492,15 +493,19 @@
             for="Username"
             >F.I.Sh. (Familiya Ism Sharifingiz)</label
           >
-          {{userEditId}}
           <select
             v-model="userEditId"
             class="xxs:w-[320px] xs:w-[365px] xss:w-[417px] smm:w-[477px] bg-[#E0E7FF33] outline-none mt-[8px] w-[530px] text-[15px] text-[#2E384D] py-[12px] pl-[16px] border-[1px] border-[#E0E7FF] rounded-[6px]"
             name=""
             id="Username"
           >
-            <option v-for="(item, index) in Sponsors" :key="index" :value="item.id">
+            <option
+              v-for="(item, index) in Sponsors"
+              :key="index"
+              :value="item.id"
+            >
               {{ item.full_name }}
+              
             </option>
           </select>
         </div>
@@ -521,7 +526,7 @@
         <hr />
         <div class="flex justify-end items-center mt-[28px]">
           <button
-            @click="addStudent"
+            @click="addSponser"
             class="w-[155px] bg-[#3366FF] rounded-[6px] py-[9px] text-[#FFF] text-[14px] flex items-center justify-center gap-[14px]"
           >
             <svg
@@ -573,7 +578,7 @@
             >F.I.Sh. (Familiya Ism Sharifingiz)</label
           >
           <input
-            v-model="UserName"
+            v-model="userSponserName"
             class="xxs:w-[321px] xs:w-[358px] xss:w-[423px] smm:w-[468px] modal-input w-[530px] py-[12px] pl-[16px] border-[1px] mt-[8px] text-[#2E384D59] text-[15px] outline-none border-[#E0E7FF] rounded-[6px]"
             type="text"
             placeholder="Ishmuhammedov Aziz Ishqobilovich"
@@ -638,8 +643,8 @@
             Homiyni o‘chirish
           </button>
           <button
-            @click="btnOff"
-            class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
+            @click="patchSponsor"
+            class=" flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
           >
             <svg
               width="20"
@@ -689,37 +694,16 @@ export default {
       datas: [],
       Sponsors: [],
       sponsorData: [],
+      UserDeleteData: '',
       //  sponsor add
-      options: [
-        {
-          value: "0",
-          text: "Homiyni tanlang",
-        },
-        {
-          value: "1",
-          text: "Ishmuhammedov Aziz Ishqobilovich",
-        },
-        {
-          value: "2",
-          text: "Saimov Rustam Saimjonovich",
-        },
-        {
-          value: "4",
-          text: "Sanginov Otabek Muratovich",
-        },
-        {
-          value: "5",
-          text: "Nazarov Sanjar Olimovich",
-        },
-      ],
-      UserName: "0",
       UserSum: "",
       // Edit student
       UserSelect: "",
       UserNumber: "",
       UserName: "",
       UserSums: "UZS",
-      userEditId: '',
+      userEditId: "",
+      userSponserName:'',
       currentSlug: undefined,
     };
   },
@@ -757,7 +741,7 @@ export default {
       .then((res) => res.json())
       .then((data) => {
         this.sponsorData = data;
-        console.log(data, "data");
+        console.log(data, "data")
       })
       .catch((err) => console.log(err.message));
     // Sponsors
@@ -768,6 +752,7 @@ export default {
       .then((data) => {
         this.Sponsors = data.results;
         console.log(data, "data");
+        
       })
       .catch((err) => console.log(err.message));
   },
@@ -777,7 +762,7 @@ export default {
       const data = {
         full_name: String(this.UserName),
         phone: String(this.UserNumber),
-        institute: String(this.UserSelect),
+        institute: this.UserSelect.id,
         contract: Number(this.UserSums),
         type: Number(this.data.type),
       };
@@ -800,8 +785,41 @@ export default {
         });
       this.$router.push("/Talabalar");
     },
-    addStudent() {
+    // Sponser summa update
+    patchSponsor() {
+      document.querySelector(".edit-sponsor ").style.display = "none";
       const data = {
+        id: this.UserDeleteData,
+        sponsor: this.userSponserName,
+        summa: String(this.UserSum),
+        student: String(this.currentSlug),
+      };
+
+      fetch(
+        `https://club.metsenat.uz/api/v1/sponsor-summa-update/${this.currentSlug}/`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
+    on() {
+      document.getElementById("overlay").style.display = "flex";
+    },
+    // Sponsor create
+    addSponser() {
+      document.getElementById("overlay").style.display = "none";
+       const data = {
         sponsor: this.userEditId,
         summa: String(this.UserSum),
         student: String(this.currentSlug),
@@ -816,27 +834,23 @@ export default {
         .then((response) => response.json())
         .then((datas) => {
           console.log("Success:", datas);
-          this.$router.go(0)
+          // this.$router.go(0)
         })
         .catch((error) => {
           console.error("Error:", error);
         });
 
-        // GET
-         fetch(
-      `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        this.sponsorData = data;
-        
-      })
-      .catch((err) => console.log(err.message));
+      // GET
+      fetch(
+        `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          this.sponsorData = data;
+        })
+        .catch((err) => console.log(err.message));
     },
 
-    on() {
-      document.getElementById("overlay").style.display = "flex";
-    },
     off() {
       document.getElementById("overlay").style.display = "none";
     },
@@ -844,14 +858,41 @@ export default {
     EditOn() {
       document.querySelector(".edit-student").style.display = "flex";
     },
-    EditOff() {
-      document.querySelector(".edit-student").style.display = "none";
-    },
-    // edit sponsor
+    // Delete sponser
     btnOff() {
       document.querySelector(".edit-sponsor ").style.display = "none";
+       fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-delete/${this.UserDeleteData}/`,  {
+          method: "DELETE",
+        })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success", data);
+        this.btnOff()
+      })
+      .catch(() => {
+        console.log("Error:", error);
+      })
+      // GET
+      fetch(
+      `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.sponsorData = data;
+        console.log(data, "data")
+      })
+      .catch((err) => console.log(err.message));
     },
-    btnOn() {
+    EditOff () {
+      document.querySelector(".edit-student").style.display = "none";
+    },
+  
+    // Sponsor summa update
+    btnOn(item) {
+      this.userSponserName = item.sponsor.full_name
+      this.UserSum = item.summa
+      console.log(item.id)
+      this.UserDeleteData = item.id
       document.querySelector(".edit-sponsor ").style.display = "flex";
     },
   },

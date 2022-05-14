@@ -83,8 +83,13 @@
           name="OTM ni tanlang"
           id="OTM"
         >
-          <option class="w-[200px] h-[200px] flex items-center justify-center" v-for="(item, index) in data" :value="item.id" :key="index">
-            {{ item.name}}
+          <option
+            class="w-[200px] h-[200px] flex items-center justify-center"
+            v-for="(item, index) in data"
+            :value="item.id"
+            :key="index"
+          >
+            {{ item.name }}
           </option>
         </select>
       </div>
@@ -160,7 +165,6 @@
 
 <script>
 export default {
- 
   data() {
     return {
       userName: "",
@@ -180,21 +184,13 @@ export default {
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
-
-    fetch("https://metsenatclub.xn--h28h.uz/api/v1/student-create/")
-      .then((res) => res.json())
-      .then((data) => {
-        this.typeList = data;
-        console.log(data, "data");
-      })
-      .catch((err) => console.log(err.message));
   },
   methods: {
-    async addUser() {   
+    async addUser() {
       const data = {
         full_name: this.userName,
         phone: String(this.userNumber),
-        institute: this.userUnv,
+        institute: String(this.userUnv),
         type: Number(this.usertypeStudy),
         contract: this.userSum,
       };
@@ -203,7 +199,7 @@ export default {
         const response = await fetch(
           "https://club.metsenat.uz/api/v1/student-create/",
           {
-            method: "POST", 
+            method: "POST",
             body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json",
@@ -211,11 +207,10 @@ export default {
           }
         );
         const json = await response.json();
-        console.log("Успех:", JSON.stringify(json));
-
-        this.$router.push("/Talabalar");
+        console.log("Success:", JSON.stringify(json),
+        this.$router.push("/Talabalar"));
       } catch (error) {
-        console.error("Ошибка:", error);
+        console.error("Error:", error);
       }
 
       // fetch("https://club.metsenat.uz/api/v1/student-create/", {
