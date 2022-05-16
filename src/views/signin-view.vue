@@ -90,7 +90,7 @@ const register = () => {
     .then((data) => {
       console.log(data, "Successfully sign in !");
       console.log(auth.currentUser);
-      router.push("/");
+      router.push("/Dashboard");
     })
     .catch((error) => {
       console.log(error.code);

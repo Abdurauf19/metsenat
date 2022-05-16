@@ -45,7 +45,7 @@
           </th>
         </tr>
         
-        <template v-if="data.length">
+       
          
           <tr
             data-aos="fade-up"
@@ -114,10 +114,22 @@
                 </svg></td
             ></router-link>
           </tr>
-        </template>
+      
       </table>
-      <div></div>
     </div>
+     <div class="flex justify-end items-center pb-[84px] pr-[120px]">
+          <el-pagination
+            v-model:currentPage="currentPage"
+            v-model:page-size="pageSize3"
+            :small="small"
+            :disabled="disabled"
+            :background="background"
+            layout="prev, pager, next, jumper"
+            :total="total"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          />
+        </div>
   </div>
 </template>
 
@@ -126,6 +138,8 @@ export default {
   data() {
     return {
       data: [],
+      total: 0,
+      currentPage: 1,
       
     };
   },
@@ -142,9 +156,25 @@ export default {
       .then((data) => {
         this.data = data.results;
         console.log(data, "data");
+        this.total = data.count
       })
       .catch((err) => console.log(err.message));
   },
+
+   watch: {
+    currentPage(newVal) {
+      fetch(`https://club.metsenat.uz/api/v1/sponsor-list?page=${newVal}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(this.currentPage, '')
+        this.data = data.results;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+    }
+  }
 };
 </script>
 
@@ -196,7 +226,4 @@ th {
 </style>
 
 
- //
-
-          //
-            // 
+ 

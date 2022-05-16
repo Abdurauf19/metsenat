@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    meta: {layout: 'main-layout'},
+    meta: {layout: 'nonUser-layout'},
     component: index
   },
   {
@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/non-user',
     name: 'NoN user',
-    meta: {layout: 'nonUser-layout'},
+    // meta: {layout: 'nonUser-layout'},
     component: NonUser
 
   },
@@ -100,7 +100,7 @@ const router = createRouter({
 //   )
 // })
 // }
-// router.beforeEach(async(to, next) => {
+// router.beforeEach(async(to, from next) => {
 //   if (to.matched.some((record) => record.meta.requiresAuth)) {
 //     if (await getCurrentUser()) {
 //       next();

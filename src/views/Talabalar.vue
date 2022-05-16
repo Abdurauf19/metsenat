@@ -140,6 +140,19 @@
         </tr>
       </table>
     </div>
+     <div class="flex justify-end items-center pb-[84px] pr-[120px]">
+          <el-pagination
+            v-model:currentPage="currentPage"
+            v-model:page-size="pageSize3"
+            :small="small"
+            :disabled="disabled"
+            :background="background"
+            layout="prev, pager, next, jumper"
+            :total="total"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          />
+        </div>
   </div>
 </template>
 
@@ -147,6 +160,8 @@
 export default {
   data() {
     return {
+      total: 0,
+      currentPage: 1,
       data: [],
       typeStudy: ["", "Bakalavr", "Magistr", "Phd"],
     };
@@ -159,9 +174,24 @@ export default {
       .then((data) => {
         this.data = data.results;
         console.log(data, "data");
+        this.total = data.count
       })
       .catch((err) => console.log(err.message));
   },
+  watch: {
+    currentPage(newVal) {
+      fetch(`https://club.metsenat.uz/api/v1/student-list/?page=${newVal}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(this.currentPage, '')
+        this.data = data.results;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
+    }
+  }
 };
 </script>
 

@@ -217,7 +217,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            Homiy qo‘shish 
+            Homiy qo‘shish
           </button>
         </div>
         <!-- table -->
@@ -226,7 +226,7 @@
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
             >
-              # 
+              #
             </th>
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
@@ -241,7 +241,7 @@
             <th
               class="xss:text-[7px] sm:text-[9px] text-[12px] text-[#B1B1B8] uppercase font-medium"
             >
-              Amallar 
+              Amallar
             </th>
           </tr>
           <tr
@@ -375,15 +375,15 @@
         <label
           class="xs:text-[13px] text-[14px] text-[#1D1D1F] uppercase font-medium"
           for="UserSelect"
-          >OTM </label
-        >
+          >OTM
+        </label>
         <select
           v-model="UserSelect"
           class="xxs:w-[313px] xs:w-[373px] xss:w-[427px] smm:w-[481px] outline-none pl-[16px] py-[12px] mt-[8px] text-[15px] text-[#2E384D] bg-[#E0E7FF33] border-[#E0E7FF] border-[1px] w-[530px] rounded-[6px]"
           id="UserSelect"
           required
         >
-          <option 
+          <option
             class="max-w-[50px]"
             :value="item.id"
             v-for="(item, i) in instituteList"
@@ -505,7 +505,6 @@
               :value="item.id"
             >
               {{ item.full_name }}
-              
             </option>
           </select>
         </div>
@@ -644,7 +643,7 @@
           </button>
           <button
             @click="patchSponsor"
-            class=" flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
+            class="flex items-center justify-center gap-[13px] w-[150px] bg-[#3366FF] py-[9px] text-[#FFF] rounded-[6px]"
           >
             <svg
               width="20"
@@ -694,7 +693,7 @@ export default {
       datas: [],
       Sponsors: [],
       sponsorData: [],
-      UserDeleteData: '',
+      UserDeleteData: "",
       //  sponsor add
       UserSum: "",
       // Edit student
@@ -703,7 +702,7 @@ export default {
       UserName: "",
       UserSums: "UZS",
       userEditId: "",
-      userSponserName:'',
+      userSponserName: "",
       currentSlug: undefined,
     };
   },
@@ -741,18 +740,17 @@ export default {
       .then((res) => res.json())
       .then((data) => {
         this.sponsorData = data;
-        console.log(data, "data")
+        console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
     // Sponsors
-    fetch("https://club.metsenat.uz/api/v1/sponsor-list", {
+    fetch("https://club.metsenat.uz/api/v1/sponsor-list/", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
         this.Sponsors = data.results;
         console.log(data, "data");
-        
       })
       .catch((err) => console.log(err.message));
   },
@@ -762,7 +760,7 @@ export default {
       const data = {
         full_name: String(this.UserName),
         phone: String(this.UserNumber),
-        institute: this.UserSelect.id,
+        institute: this.UserSelect,
         contract: Number(this.UserSums),
         type: Number(this.data.type),
       };
@@ -789,22 +787,18 @@ export default {
     patchSponsor() {
       document.querySelector(".edit-sponsor ").style.display = "none";
       const data = {
-        id: this.UserDeleteData,
-        sponsor: this.userSponserName,
-        summa: String(this.UserSum),
+        sponsor: 112,
+        summa: Number(this.UserSum),
         student: String(this.currentSlug),
       };
 
-      fetch(
-        `https://club.metsenat.uz/api/v1/sponsor-summa-update/${this.currentSlug}/`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      )
+      fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-update/285/`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
@@ -819,7 +813,7 @@ export default {
     // Sponsor create
     addSponser() {
       document.getElementById("overlay").style.display = "none";
-       const data = {
+      const data = {
         sponsor: this.userEditId,
         summa: String(this.UserSum),
         student: String(this.currentSlug),
@@ -858,41 +852,48 @@ export default {
     EditOn() {
       document.querySelector(".edit-student").style.display = "flex";
     },
+    // delete Sponsor
+    async deleteSponsorDetail() {
+      await fetch(
+        `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          this.sponsorData = data;
+          console.log(data, "data after deelete");
+        })
+        .catch((err) => console.log(err.message));
+    },
     // Delete sponser
     btnOff() {
       document.querySelector(".edit-sponsor ").style.display = "none";
-       fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-delete/${this.UserDeleteData}/`,  {
-          method: "DELETE",
-        })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success", data);
-        this.btnOff()
-      })
-      .catch(() => {
-        console.log("Error:", error);
-      })
-      // GET
       fetch(
-      `https://club.metsenat.uz/api/v1/student-sponsor/${this.currentSlug}/`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        this.sponsorData = data;
-        console.log(data, "data")
-      })
-      .catch((err) => console.log(err.message));
+        `https://club.metsenat.uz/api/v1/sponsor-summa-delete/${this.UserDeleteData}/`,
+        {
+          method: "DELETE",
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success", data);
+          this.btnOff();
+          this.deleteSponsorDetail();
+        })
+        .catch(() => {
+          console.log("Error:", error);
+        });
+      // GET
     },
-    EditOff () {
+    EditOff() {
       document.querySelector(".edit-student").style.display = "none";
     },
-  
+
     // Sponsor summa update
     btnOn(item) {
-      this.userSponserName = item.sponsor.full_name
-      this.UserSum = item.summa
-      console.log(item.id)
-      this.UserDeleteData = item.id
+      this.userSponserName = item.sponsor.full_name;
+      this.UserSum = item.summa;
+      console.log(item.id);
+      this.UserDeleteData = item.id;
       document.querySelector(".edit-sponsor ").style.display = "flex";
     },
   },

@@ -10,7 +10,6 @@
           class="xs:text-[29px] text-[40px] text-[#1D1D1F] leading-[56px] font-bold pb-[40px]"
         >
           {{ $t("nonUser.title") }}
-          {{currentSum}}
         </h2>
         <div class="flex">
           <div
@@ -75,9 +74,11 @@
             class="text-[14px] xss:text-[12px] text-[#1D1D1F] font-medium uppercase"
             >{{ $t("userForm.formSum") }}</label
           >
-          <div class="flex flex-wrap gap-[16px] pt-[12px]">
+          <div
+            class=" flex flex-wrap gap-[16px] pt-[12px]"
+          >
             <label
-              v-for="(item, index) in cutSumms(summs)"
+              v-for="(item, index) in summs"
               :key="index"
               class="cursor-pointer radio xl:w-[150px] w-[179px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
               :class="{ galochka: currentSum === index }"
@@ -85,25 +86,23 @@
             >
               <div class="click">
                 <span class="flex items-center justify-center py-[20px]">
-                  <p>
-                    {{ index == 5 ? $t("userForm.formAnotherSum") : "" }}
-                  </p>
                   <p
-                    class="text-[#2E384D] text-[15px] leading-[21px] uppercase"
                   >
-                    {{ item.summa }}
-                    <span
-                      v-if="index !== 5"
-                      class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase"
-                      >UZS</span
-                    >
+                    {{
+                      index == 5 ? $t("userForm.formAnotherSum") : ''
+                    }}
                   </p>
+                  <p class=" text-[#2E384D] text-[15px] leading-[21px] uppercase">
+                    {{item.summa}} <span  class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase ">UZS</span> 
+                  </p>
+                  
                 </span>
+                
               </div>
             </label>
             <Transition>
               <input
-                v-if="currentSum === 5"
+                v-if="currentSum === 7"
                 class="xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] py-[12px] pl-[16px] rounded-[6px]"
                 type="number"
                 placeholder="0"
@@ -257,7 +256,6 @@ export default {
       tab: true,
       currentSum: "",
       btnIndex: 0,
-      userSum:'',
       summs: [],
       btns: [
         {
@@ -267,6 +265,7 @@ export default {
           text: "Yuridik shaxs",
         },
       ],
+     
     };
   },
 
@@ -278,25 +277,21 @@ export default {
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
+
   },
 
   methods: {
-    cutSumms(summs) {
-      let sum = summs.slice(0, 6);
-      sum[sum.length - 1] = [];
-      return sum;
-    },
     sponsorCreate() {
       const data = {
         full_name: this.userName,
         phone: this.userNumber,
-        sum: this.currentSum,
+        sum: this.sum,
         firm: this.userCompany,
-        payment_type: '3',
+        payment_type: this.payment_type
       };
 
       fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
-        method: "POST",
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },

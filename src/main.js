@@ -8,7 +8,10 @@ import toast from 'vue-toastification'
 import "vue-toastification/dist/index.css"
 import './assets/style/style.scss'
 import i18n from "./plugins/i18n.js";
-import dayjs from "dayjs"; //import dayjs in your main.js
+import ElementPlus from "element-plus";
+import "element-plus/theme-chalk/index.css";
+
+
 
 
 import { initializeApp } from "firebase/app";
@@ -28,20 +31,14 @@ const firebaseConfig = {
 
 
 createApp(App)
-  // .use(VueI18n)
   .use(i18n)
   .use(store)
   .use(router)
   .use(toast)
+  .use(ElementPlus)
   .mount('#app')
   AOS.init();
-  // app.config.globalProperties.$dayjs = dayjs;
-  //  app.provide("dayJS", dayjs);
   
-
-
-// import VueI18n from 'vue-i18n'
-
 
 
 

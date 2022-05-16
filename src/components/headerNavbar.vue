@@ -151,17 +151,17 @@
               :key="index"
               class="cursor-pointer radio w-[124px] border-[2px] border-[#E0E7FF] rounded-[5px] bg-[#F9FAFF]"
               :class="{ modalactive: currentSum === index }"
-              @click="currentSum = item.id"
+              @click="currentSum = index"
             >
               <div class="click">
                 <span class="flex items-center justify-center py-[16px]">
                   <p
                     class="text-[#2E384D] text-[15px] leading-[21px] uppercase"
                   >
-                    {{ item.title }}
+                    {{ item.summa }}
                   </p>
                   <p class="text-[12px] text-[#2E5BFF] pl-[4px] uppercase">
-                    {{ item.text }}
+                    UZS
                   </p>
                 </span>
               </div>
@@ -290,46 +290,21 @@ export default {
           path: "/Talabalar",
         },
       ],
-      summs: [
-        {
-          id: 0,
-          title: "Barchasi",
-        },
-        {
-          id: 1,
-          title: "1 000 000",
-          text: "uzs",
-        },
-        {
-          id: 2,
-          title: "5 000 000",
-          text: "uzs",
-        },
-        {
-          id: 3,
-          title: "7 000 000",
-          text: "uzs",
-        },
-        {
-          id: 4,
-          title: "10 000 000",
-          text: "uzs",
-        },
-        {
-          id: 5,
-          title: "30 000 000",
-          text: "uzs",
-        },
-        {
-          id: 6,
-          title: "50 000 000",
-          text: "uzs",
-        },
-      ],
+      summs: [],
       // Form value
       searchSelect: 0,
       searchData: 19,
     };
+  },
+
+  mounted () {
+   fetch("https://club.metsenat.uz/api/v1/tariff-list/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.summs = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
   },
 
   methods: {
