@@ -11,6 +11,7 @@ import AddStudent from '../views/add-student.vue'
 import EditStudent from '../views/edit-student.vue'
 import aboutStudent from '../views/about-student.vue'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { storeKey } from 'vuex'
 // import { async } from '@firebase/util'
 // import { fromJSON } from 'postcss'
 const routes = [
@@ -110,6 +111,20 @@ const router = createRouter({
 //     }
 //   }
 // });
+
+// router.beforeEach((to, from, next) => {
+//   if(to.matched.some(record => record.meta.requiresAuth)) {
+//     if (!storeKey.user) {
+//       next({
+//         name: "/sign-in"
+//       });
+//     }else {
+//       next();
+//     }
+//   }else {
+//     next();
+//   }
+// })
 
 
 export default router

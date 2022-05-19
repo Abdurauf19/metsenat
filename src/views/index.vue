@@ -10,7 +10,6 @@
           class="xs:text-[29px] text-[40px] text-[#1D1D1F] leading-[56px] font-bold pb-[40px]"
         >
           {{ $t("nonUser.title") }}
-          {{currentSum}}
         </h2>
         <div class="flex">
           <div
@@ -125,9 +124,30 @@
               placeholder="Orient group"
             />
           </div>
+          <div class="mt-[28px] flex flex-col">
+            <label
+              for="paymentType"
+              class="xss:text-[12px]text-[14px] text-[#1D1D1F] font-medium uppercase"
+              >{{ $t("userForm.paymentType") }}
+            </label>
+            <select
+              v-model="UserpaymentType"
+              id="paymentType"
+              class="xs:w-[361px] xll:w-[100%] xl:w-[520px] w-[594px] mt-[8px] py-[12px] pl-[16px] text-[#000000] text-[15px] border-[1px] border-[#E0E7FF] rounded-[6px]"
+            >
+              <option
+                :value="item.id"
+                v-for="(item, i) in paymentList"
+                :key="i"
+              >
+                {{ item.title }}
+              </option>
+            </select>
+          </div>
           <button
             @click="sponsorCreate"
             type="Button"
+            v-bind:disabled="userName < 5"
             aria-required="form"
             class="bg-[#2E5BFF] mt-[28px] rounded-[6px] text-[#FFFFFF] text-[15px] py-[14px] xs:w-[361px] xss:w-[461px] xll:w-[500px] xl:w-[520px] w-[594px]"
           >
@@ -257,7 +277,9 @@ export default {
       tab: true,
       currentSum: "",
       btnIndex: 0,
-      userSum:'',
+      userSum: "",
+      UserpaymentType: "",
+      paymentList: [],
       summs: [],
       btns: [
         {
@@ -278,6 +300,14 @@ export default {
         console.log(data, "data");
       })
       .catch((err) => console.log(err.message));
+
+    fetch("https://metsenatclub.xn--h28h.uz/api/v1/payment-type-list/")
+      .then((res) => res.json())
+      .then((data) => {
+        this.paymentList = data;
+        console.log(data, "data");
+      })
+      .catch((err) => console.log(err.message));
   },
 
   methods: {
@@ -289,10 +319,10 @@ export default {
     sponsorCreate() {
       const data = {
         full_name: this.userName,
+        payment_type: [this.UserpaymentType] ,
         phone: this.userNumber,
         sum: this.currentSum,
         firm: this.userCompany,
-        payment_type: '3',
       };
 
       fetch("https://metsenatclub.xn--h28h.uz/api/v1/sponsor-create/", {
@@ -305,13 +335,14 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
+          alert(message)
         })
         .catch((error) => {
           console.error("Error:", error);
         });
       console.log(this.v$);
       if (!this.v$.$error) {
-        alert("Form succes validation");
+        // alert("Form succes validation");
         this.step = 2;
       } else {
         alert("Form failed validation");

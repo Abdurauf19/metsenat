@@ -17,6 +17,7 @@
     "formSum": "Payment",
     "formAnotherSum": "OTHER",
     "formOrganization": "NAME OF THE ORGANIZATION",
+    "paymentType": "Payment type",
     "formSend": "SEND"  
   },
   "formSEND": {

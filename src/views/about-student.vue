@@ -787,12 +787,12 @@ export default {
     patchSponsor() {
       document.querySelector(".edit-sponsor ").style.display = "none";
       const data = {
-        sponsor: 112,
+        sponsor:sponsorData.sponsor.full_name,
         summa: Number(this.UserSum),
         student: String(this.currentSlug),
       };
 
-      fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-update/285/`, {
+      fetch(`https://club.metsenat.uz/api/v1/sponsor-summa-update/15/`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
